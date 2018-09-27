@@ -4,7 +4,7 @@
 // LICENSE file in the root directory of this source tree.
 
 #include "SampleCxxModule.h"
-#include <cxxreact/JsArgumentHelpers.h>
+
 
 #include <folly/Memory.h>
 #include <glog/logging.h>
@@ -84,32 +84,11 @@ auto SampleCxxModule::getMethods() -> std::vector<Method> {
     Method("hello", [this] {
         sample_->hello();
       }),
-    Method("add", [this](dynamic args, Callback cb) {
-        LOG(WARNING) << "Sample: add => "
-                     << sample_->add(jsArgAsDouble(args, 0), jsArgAsDouble(args, 1));
-        cb({sample_->add(jsArgAsDouble(args, 0), jsArgAsDouble(args, 1))});
-      }),
-    Method("concat", [this](dynamic args, Callback cb) {
-        cb({sample_->concat(jsArgAsString(args, 0),
-                            jsArgAsString(args, 1))});
-      }),
-    Method("repeat", [this](dynamic args, Callback cb) {
-        cb({sample_->repeat(jsArgAsInt(args, 0),
-                            jsArgAsString(args, 1))});
-      }),
     Method("save", this, &SampleCxxModule::save),
     Method("load", this, &SampleCxxModule::load),
-    Method("call_later", [this](dynamic args, Callback cb) {
-        sample_->call_later(jsArgAsInt(args, 0), [cb] {
-            cb({});
-          });
-      }),
     Method("except", [this] {
         sample_->except();
       }),
-    Method("twice", [this](dynamic args) -> dynamic {
-        return sample_->twice(jsArgAsDouble(args, 0));
-      }, SyncTag),
     Method("syncHello", [this]() -> dynamic {
         sample_->hello();
         return nullptr;
@@ -119,10 +98,6 @@ auto SampleCxxModule::getMethods() -> std::vector<Method> {
 
 void SampleCxxModule::save(folly::dynamic args) {
   std::map<std::string, std::string> m;
-  for (const auto& p : jsArgN(args, 0, &dynamic::items)) {
-    m.emplace(jsArg(p.first, &dynamic::asString, "map key"),
-              jsArg(p.second, &dynamic::asString, "map value"));
-  }
   sample_->save(std::move(m));
 }
 
