@@ -24,8 +24,10 @@ struct MethodDescriptor {
       , type(std::move(t)) {}
 };
 
-  using MethodCallResult = folly::Optional<folly::dynamic>;
 
+using MethodCallResult = folly::Optional<folly::dynamic>;
+  
+  
 class NativeModule {
  public:
   virtual ~NativeModule() {}
@@ -35,6 +37,7 @@ class NativeModule {
   virtual void invoke(unsigned int reactMethodId, folly::dynamic&& params, int callId) = 0;
   virtual MethodCallResult callSerializableNativeHook(unsigned int reactMethodId, folly::dynamic&& args) = 0;
 };
+  
 
 }
 }
