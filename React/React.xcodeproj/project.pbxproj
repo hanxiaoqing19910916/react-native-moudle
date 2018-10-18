@@ -89,6 +89,8 @@
 		8A071D8B2174788000DD499C /* RCTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D872174788000DD499C /* RCTUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A071D8C2174788000DD499C /* RCTLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A071D882174788000DD499C /* RCTLog.mm */; };
 		8A071D8D2174788000DD499C /* RCTLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D892174788000DD499C /* RCTLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */; };
+		8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */; };
 		C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */ = {isa = PBXBuildFile; fileRef = C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +248,8 @@
 		8A071D872174788000DD499C /* RCTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTUtils.h; sourceTree = "<group>"; };
 		8A071D882174788000DD499C /* RCTLog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTLog.mm; sourceTree = "<group>"; };
 		8A071D892174788000DD499C /* RCTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTLog.h; sourceTree = "<group>"; };
+		8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCxxBridge.h; sourceTree = "<group>"; };
+		8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxBridge.mm; sourceTree = "<group>"; };
 		C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTModuleMethod.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -275,6 +279,8 @@
 		13134C721E296B2A00B9F3CB /* CxxBridge */ = {
 			isa = PBXGroup;
 			children = (
+				8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */,
+				8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */,
 			);
 			path = CxxBridge;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
 				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
 				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
+				8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */,
 				3D80DA211DF820620028D040 /* RCTBridge.h in Headers */,
 				3D80DA241DF820620028D040 /* RCTBridgeMethod.h in Headers */,
 				3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */,
@@ -709,6 +716,7 @@
 				14C2CA741B3AC64300E6CBB2 /* RCTModuleData.mm in Sources */,
 				8A071D8C2174788000DD499C /* RCTLog.mm in Sources */,
 				83CBBA601A601EAA00E9B192 /* RCTBridge.m in Sources */,
+				8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */,
 				8A071D8A2174788000DD499C /* RCTUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
