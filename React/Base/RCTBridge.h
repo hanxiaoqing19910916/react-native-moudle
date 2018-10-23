@@ -12,7 +12,6 @@ RCT_EXTERN NSString *RCTBridgeModuleNameForClass(Class bridgeModuleClass);
 
 RCT_EXTERN NSArray<Class> *RCTGetModuleClasses(void);
 
-
 /**
  * This notification fires each time a native module is instantiated. The
  * `module` key will contain a reference to the newly-created module instance.
@@ -26,7 +25,6 @@ RCT_EXTERN NSString *const RCTDidInitializeModuleNotification;
  */
 RCT_EXTERN NSString *const RCTBridgeWillReloadNotification;
 
-
 /**
  * This block can be used to instantiate modules that require additional
  * init parameters, or additional configuration prior to being used.
@@ -37,7 +35,6 @@ RCT_EXTERN NSString *const RCTBridgeWillReloadNotification;
  */
 typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 
-
 @interface RCTBridge : NSObject
 /**
  * The designated initializer. This creates a new bridge on top of the specified
@@ -47,8 +44,7 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
  * array of pre-initialized module instances if they require additional init
  * parameters or configuration.
  */
-- (instancetype)initWithBundleURL:(NSURL *)bundleURL
-                   moduleProvider:(RCTBridgeModuleListProvider)block
+- (instancetype)initWithModuleProvider:(RCTBridgeModuleListProvider)block
                     launchOptions:(NSDictionary *)launchOptions;
 
 
@@ -105,6 +101,46 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 @end
 
 
+
+@interface RCTBridge ()
+
+// Used for the profiler flow events between JS and native
+//@property (nonatomic, assign) int64_t flowID;
+//@property (nonatomic, assign) CFMutableDictionaryRef flowIDMap;
+//@property (nonatomic, strong) NSLock *flowIDMapLock;
+
+// Used by RCTDevMenu
+//@property (nonatomic, copy) NSString *bridgeDescription;
+
++ (instancetype)currentBridge;
++ (void)setCurrentBridge:(RCTBridge *)bridge;
+
+/**
+ * Bridge setup code - creates an instance of RCTBachedBridge. Exposed for
+ * test only
+ */
+- (void)setUp;
+
+/**
+ * This method is used to invoke a callback that was registered in the
+ * JavaScript application context. Safe to call from any thread.
+ */
+- (void)enqueueCallback:(NSNumber *)cbID args:(NSArray *)args;
+
+/**
+ * This property is mostly used on the main thread, but may be touched from
+ * a background thread if the RCTBridge happens to deallocate on a background
+ * thread. Therefore, we want all writes to it to be seen atomically.
+ */
+@property (atomic, strong) RCTBridge *batchedBridge;
+
+/**
+ * The block that creates the modules' instances to be added to the bridge.
+ * Exposed for RCTCxxBridge
+ */
+@property (nonatomic, copy, readonly) RCTBridgeModuleListProvider moduleProvider;
+
+@end
 @interface RCTBridge (RCTCxxBridge)
 
 /**
@@ -128,40 +164,4 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
  */
 - (void)registerModuleForFrameUpdates:(id<RCTBridgeModule>)module
                        withModuleData:(RCTModuleData *)moduleData;
-@end
-
-
-
-@interface RCTBridge ()
-
-// Used for the profiler flow events between JS and native
-//@property (nonatomic, assign) int64_t flowID;
-//@property (nonatomic, assign) CFMutableDictionaryRef flowIDMap;
-//@property (nonatomic, strong) NSLock *flowIDMapLock;
-
-// Used by RCTDevMenu
-//@property (nonatomic, copy) NSString *bridgeDescription;
-
-+ (instancetype)currentBridge;
-+ (void)setCurrentBridge:(RCTBridge *)bridge;
-
-/**
- * Bridge setup code - creates an instance of RCTBachedBridge. Exposed for
- * test only
- */
-- (void)setUp;
-
-/**
- * This property is mostly used on the main thread, but may be touched from
- * a background thread if the RCTBridge happens to deallocate on a background
- * thread. Therefore, we want all writes to it to be seen atomically.
- */
-@property (atomic, strong) RCTBridge *batchedBridge;
-
-/**
- * The block that creates the modules' instances to be added to the bridge.
- * Exposed for RCTCxxBridge
- */
-@property (nonatomic, copy, readonly) RCTBridgeModuleListProvider moduleProvider;
-
 @end

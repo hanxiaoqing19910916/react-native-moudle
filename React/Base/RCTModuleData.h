@@ -1,5 +1,6 @@
 
 #import <Foundation/Foundation.h>
+#import "RCTModuleMethod.h"
 
 @protocol RCTBridgeMethod;
 @protocol RCTBridgeModule;

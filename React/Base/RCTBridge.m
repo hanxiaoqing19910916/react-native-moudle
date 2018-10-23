@@ -99,12 +99,10 @@ static RCTBridge *RCTCurrentBridgeInstance = nil;
   RCTCurrentBridgeInstance = currentBridge;
 }
 
-- (instancetype)initWithBundleURL:(NSURL *)bundleURL
-                   moduleProvider:(RCTBridgeModuleListProvider)block
+- (instancetype)initWithModuleProvider:(RCTBridgeModuleListProvider)block
                     launchOptions:(NSDictionary *)launchOptions
 {
   if (self = [super init]) {
-    bundleURL = nil;
     _moduleProvider = block;
     _launchOptions = [launchOptions copy];
     

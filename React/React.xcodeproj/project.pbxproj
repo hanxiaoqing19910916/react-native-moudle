@@ -89,6 +89,12 @@
 		8A071D8B2174788000DD499C /* RCTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D872174788000DD499C /* RCTUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8A071D8C2174788000DD499C /* RCTLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A071D882174788000DD499C /* RCTLog.mm */; };
 		8A071D8D2174788000DD499C /* RCTLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D892174788000DD499C /* RCTLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A22B9EA217DAB76001B53F6 /* RCTParserUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A22B9E8217DAB76001B53F6 /* RCTParserUtils.h */; };
+		8A22B9EB217DAB76001B53F6 /* RCTParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */; };
+		8A22B9EC217DABEF001B53F6 /* RCTConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A22B9E4217DAADE001B53F6 /* RCTConvert.h */; };
+		8A22B9ED217DABF1001B53F6 /* RCTConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9E5217DAADE001B53F6 /* RCTConvert.m */; };
+		8A22B9F0217DAE7B001B53F6 /* RCTManagedPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A22B9EE217DAE7B001B53F6 /* RCTManagedPointer.h */; };
+		8A22B9F1217DAE7B001B53F6 /* RCTManagedPointer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EF217DAE7B001B53F6 /* RCTManagedPointer.mm */; };
 		8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */; };
 		8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */; };
 		C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */ = {isa = PBXBuildFile; fileRef = C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */; };
@@ -248,6 +254,12 @@
 		8A071D872174788000DD499C /* RCTUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTUtils.h; sourceTree = "<group>"; };
 		8A071D882174788000DD499C /* RCTLog.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTLog.mm; sourceTree = "<group>"; };
 		8A071D892174788000DD499C /* RCTLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTLog.h; sourceTree = "<group>"; };
+		8A22B9E4217DAADE001B53F6 /* RCTConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTConvert.h; sourceTree = "<group>"; };
+		8A22B9E5217DAADE001B53F6 /* RCTConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTConvert.m; sourceTree = "<group>"; };
+		8A22B9E8217DAB76001B53F6 /* RCTParserUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTParserUtils.h; sourceTree = "<group>"; };
+		8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTParserUtils.m; sourceTree = "<group>"; };
+		8A22B9EE217DAE7B001B53F6 /* RCTManagedPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTManagedPointer.h; sourceTree = "<group>"; };
+		8A22B9EF217DAE7B001B53F6 /* RCTManagedPointer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTManagedPointer.mm; sourceTree = "<group>"; };
 		8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCxxBridge.h; sourceTree = "<group>"; };
 		8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxBridge.mm; sourceTree = "<group>"; };
 		C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTModuleMethod.mm; sourceTree = "<group>"; };
@@ -459,6 +471,12 @@
 				13AF1F851AE6E777005F5298 /* RCTDefines.h */,
 				14C2CA721B3AC64300E6CBB2 /* RCTModuleData.h */,
 				14C2CA731B3AC64300E6CBB2 /* RCTModuleData.mm */,
+				8A22B9E8217DAB76001B53F6 /* RCTParserUtils.h */,
+				8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */,
+				8A22B9E4217DAADE001B53F6 /* RCTConvert.h */,
+				8A22B9E5217DAADE001B53F6 /* RCTConvert.m */,
+				8A22B9EE217DAE7B001B53F6 /* RCTManagedPointer.h */,
+				8A22B9EF217DAE7B001B53F6 /* RCTManagedPointer.mm */,
 				14C2CA6F1B3AC63800E6CBB2 /* RCTModuleMethod.h */,
 				C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */,
 			);
@@ -515,6 +533,8 @@
 				8A071D8D2174788000DD499C /* RCTLog.h in Headers */,
 				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
 				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
+				8A22B9EA217DAB76001B53F6 /* RCTParserUtils.h in Headers */,
+				8A22B9F0217DAE7B001B53F6 /* RCTManagedPointer.h in Headers */,
 				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
 				8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */,
 				3D80DA211DF820620028D040 /* RCTBridge.h in Headers */,
@@ -523,6 +543,7 @@
 				3D80DA281DF820620028D040 /* RCTDefines.h in Headers */,
 				3D80DA351DF820620028D040 /* RCTModuleData.h in Headers */,
 				3D80DA361DF820620028D040 /* RCTModuleMethod.h in Headers */,
+				8A22B9EC217DABEF001B53F6 /* RCTConvert.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,14 +731,17 @@
 			files = (
 				59EDBCB31FDF4E0C003573DE /* (null) in Sources */,
 				130443A21E3FEAA900D93A67 /* RCTFollyConvert.mm in Sources */,
+				8A22B9EB217DAB76001B53F6 /* RCTParserUtils.m in Sources */,
 				C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */,
 				8A071D852174783200DD499C /* RCTAssert.m in Sources */,
+				8A22B9ED217DABF1001B53F6 /* RCTConvert.m in Sources */,
 				59EDBCAB1FDF4E0C003573DE /* (null) in Sources */,
 				14C2CA741B3AC64300E6CBB2 /* RCTModuleData.mm in Sources */,
 				8A071D8C2174788000DD499C /* RCTLog.mm in Sources */,
 				83CBBA601A601EAA00E9B192 /* RCTBridge.m in Sources */,
 				8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */,
 				8A071D8A2174788000DD499C /* RCTUtils.m in Sources */,
+				8A22B9F1217DAE7B001B53F6 /* RCTManagedPointer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

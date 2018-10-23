@@ -261,10 +261,11 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init);
         SEL selector = method_getName(method);
         NSLog(@"收集到模块class： %@的%@方法", cls, NSStringFromSelector(selector));
         if ([NSStringFromSelector(selector) hasPrefix:@"__rct_export__"]) {
-//        IMP imp = method_getImplementation(method);
-//        auto exportedMethod = ((const RCTMethodInfo *(*)(id, SEL))imp)(_moduleClass, selector);
-          
-//        [moduleMethods addObject:moduleMethod];
+          IMP imp = method_getImplementation(method);
+          auto exportedMethod = ((const RCTMethodInfo *(*)(id, SEL))imp)(_moduleClass, selector);
+          id<RCTBridgeMethod> moduleMethod = [[RCTModuleMethod alloc] initWithExportedMethod:exportedMethod
+                                                                                 moduleClass:_moduleClass];
+          [moduleMethods addObject:moduleMethod];
         }
       }
       
