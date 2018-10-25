@@ -5,13 +5,10 @@
 #import "RCTUtils.h"
 
 #import "RCTBridgeModule.h"
-
 #import "RCTCxxBridge.h"
-
 
 NSString *const RCTDidInitializeModuleNotification = @"RCTDidInitializeModuleNotification";
 NSString *const RCTBridgeWillReloadNotification = @"RCTBridgeWillReloadNotification";
-
 
 static NSMutableArray<Class> *RCTModuleClasses;
 NSArray<Class> *RCTGetModuleClasses(void)
@@ -62,10 +59,6 @@ NSString *RCTBridgeModuleNameForClass(Class cls)
   
   return name;
 }
-
-
-
-
 
 
 @implementation RCTBridge
@@ -121,10 +114,6 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
 
 
-
-
-
-
 - (NSArray<Class> *)moduleClasses
 {
   return self.batchedBridge.moduleClasses;
@@ -165,9 +154,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 {
   [[NSNotificationCenter defaultCenter] postNotificationName:RCTBridgeWillReloadNotification object:self];
   
-  /**
-   * Any thread
-   */
+  /** Any thread */
   dispatch_async(dispatch_get_main_queue(), ^{
     [self invalidate];
     [self setUp];
@@ -196,7 +183,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
    * This runs only on the main thread, but crashes the subclass
    * RCTAssertMainQueue();
    */
-  //[self invalidate];
+  [self invalidate];
 }
 
 @end

@@ -35,7 +35,14 @@ RCT_EXTERN NSString *const RCTBridgeWillReloadNotification;
  */
 typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 
-@interface RCTBridge : NSObject
+
+@protocol RCTInvalidating <NSObject>
+
+- (void)invalidate;
+
+@end
+
+@interface RCTBridge : NSObject 
 /**
  * The designated initializer. This creates a new bridge on top of the specified
  * executor. The bridge should then be used for all subsequent communication
@@ -98,19 +105,12 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
  */
 - (void)reload;
 
+
 @end
 
 
 
 @interface RCTBridge ()
-
-// Used for the profiler flow events between JS and native
-//@property (nonatomic, assign) int64_t flowID;
-//@property (nonatomic, assign) CFMutableDictionaryRef flowIDMap;
-//@property (nonatomic, strong) NSLock *flowIDMapLock;
-
-// Used by RCTDevMenu
-//@property (nonatomic, copy) NSString *bridgeDescription;
 
 + (instancetype)currentBridge;
 + (void)setCurrentBridge:(RCTBridge *)bridge;
@@ -141,13 +141,13 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 @property (nonatomic, copy, readonly) RCTBridgeModuleListProvider moduleProvider;
 
 @end
-@interface RCTBridge (RCTCxxBridge)
 
+
+@interface RCTBridge (RCTCxxBridge)
 /**
  * Used by RCTModuleData
  */
-
-@property (nonatomic, weak, readonly) RCTBridge *parentBridge;
+@property (nonatomic, weak) RCTBridge *parentBridge;
 
 /**
  * Used by RCTModuleData
@@ -158,10 +158,4 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
  */
 - (void)start;
 
-/**
- * Used by RCTModuleData to register the module for frame updates after it is
- * lazily initialized.
- */
-- (void)registerModuleForFrameUpdates:(id<RCTBridgeModule>)module
-                       withModuleData:(RCTModuleData *)moduleData;
 @end

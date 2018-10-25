@@ -6,8 +6,6 @@
 
 #import "RCTLog.h"
 
-#import "RCTBridge.h"
-
 @implementation RCTModuleData
 {
   NSString *_queueName;
@@ -160,7 +158,6 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init);
 {
   if (!_setupComplete && _instance) {
     _setupComplete = YES;
-    [_bridge registerModuleForFrameUpdates:_instance withModuleData:self];
     [[NSNotificationCenter defaultCenter] postNotificationName:RCTDidInitializeModuleNotification
                                                         object:_bridge
                                                       userInfo:@{@"module": _instance, @"bridge": RCTNullIfNil(_bridge.parentBridge)}];

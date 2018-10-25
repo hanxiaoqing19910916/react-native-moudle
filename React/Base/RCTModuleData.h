@@ -1,15 +1,17 @@
 
 #import <Foundation/Foundation.h>
 #import "RCTModuleMethod.h"
+#import "RCTBridge.h"
 
 @protocol RCTBridgeMethod;
 @protocol RCTBridgeModule;
+@protocol RCTInvalidating;
 @class RCTBridge;
 
 
 typedef id<RCTBridgeModule>(^RCTBridgeModuleProvider)(void);
 
-@interface RCTModuleData : NSObject
+@interface RCTModuleData : NSObject <RCTInvalidating>
 /**
  通过Class初始化，内部把具体的Class实例化赋值给_instance属性
  一般都是常用这个方法，例如RN源码里面RCTCxxBridge.mm---registerModulesForClasses里：
