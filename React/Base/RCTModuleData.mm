@@ -144,6 +144,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init);
   // 模块类实现了bridge方法并且不等于新赋值的_bridge
   if ([_instance respondsToSelector:@selector(bridge)] && _instance.bridge != _bridge) {
     @try {
+      // 让每个模块实例对象都能取到_bridge对象， 就能够实现各个模块之前的互相调用以及通讯
       [(id)_instance setValue:_bridge forKey:@"bridge"];
     }
     @catch (NSException *exception) {
