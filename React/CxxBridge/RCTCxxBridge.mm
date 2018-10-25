@@ -21,6 +21,8 @@ typedef void (^RCTPendingCall)();
   BOOL _didInvalidate;
   BOOL _moduleSetupComplete;
   
+  RCTBridge *_parentBridge;
+  
   NSMutableArray<RCTPendingCall> *_pendingCalls;
 
   // Native modules
@@ -29,13 +31,29 @@ typedef void (^RCTPendingCall)();
   NSMutableArray<Class> *_moduleClassesByID;
 }
 
+- (RCTBridge *)parentBridge
+{
+  return _parentBridge;
+}
+
+- (BOOL)isValid
+{
+    return _valid;
+}
+
+- (BOOL)moduleSetupComplete
+{
+    return _moduleSetupComplete;
+}
+
+- (void)setUp {}
+
 - (instancetype)initWithParentBridge:(RCTBridge *)bridge
 {
   RCTAssertParam(bridge);
   
-  if ((self = [super initWithModuleProvider:bridge.moduleProvider
-                              launchOptions:bridge.launchOptions])) {
-    self.parentBridge = bridge;
+  if ((self = [super initWithModuleProvider:bridge.moduleProvider launchOptions:bridge.launchOptions])) {
+    _parentBridge = bridge;
     RCTLogInfo(@"Initializing %@ (parent: %@, executor: %@)", self, bridge, [self executorClass]);
     
     /**
@@ -116,7 +134,7 @@ typedef void (^RCTPendingCall)();
     // that we have, otherwise some modules coming from the delegate
     // or module provider block, will not be properly instantiated.
     for (RCTModuleData *moduleData in _moduleDataByID) {
-      if (moduleData.hasInstance && (!moduleData.requiresMainQueueSetup || RCTIsMainQueue())) {
+      if (moduleData.requiresMainQueueSetup && RCTIsMainQueue()) {
         // Modules that were pre-initialized should ideally be set up before
         // bridge init has finished, otherwise the caller may try to access the
         // module directly rather than via `[bridge moduleForClass:]`, which won't

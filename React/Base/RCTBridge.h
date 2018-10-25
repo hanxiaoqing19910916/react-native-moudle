@@ -54,7 +54,6 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 - (instancetype)initWithModuleProvider:(RCTBridgeModuleListProvider)block
                     launchOptions:(NSDictionary *)launchOptions;
 
-
 /**
  * Retrieve a bridge module instance by name or class. Note that modules are
  * lazily instantiated, so calling these methods for the first time with a given
@@ -63,6 +62,7 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
  */
 - (id)moduleForName:(NSString *)moduleName;
 - (id)moduleForClass:(Class)moduleClass;
+- (RCTModuleData *)moduleDataForName:(NSString *)moduleName;
 
 
 /**
@@ -147,7 +147,7 @@ typedef NSArray<id<RCTBridgeModule>> *(^RCTBridgeModuleListProvider)(void);
 /**
  * Used by RCTModuleData
  */
-@property (nonatomic, weak) RCTBridge *parentBridge;
+@property (nonatomic, weak, readonly) RCTBridge *parentBridge;
 
 /**
  * Used by RCTModuleData

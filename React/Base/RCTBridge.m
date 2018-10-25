@@ -93,7 +93,7 @@ static RCTBridge *RCTCurrentBridgeInstance = nil;
 }
 
 - (instancetype)initWithModuleProvider:(RCTBridgeModuleListProvider)block
-                    launchOptions:(NSDictionary *)launchOptions
+                         launchOptions:(NSDictionary *)launchOptions
 {
   if (self = [super init]) {
     _moduleProvider = block;
@@ -127,6 +127,11 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 - (id)moduleForClass:(Class)moduleClass
 {
   return [self moduleForName:RCTBridgeModuleNameForClass(moduleClass)];
+}
+
+- (RCTModuleData *)moduleDataForName:(NSString *)moduleName
+{
+   return [self.batchedBridge moduleDataForName:moduleName];
 }
 
 - (NSArray *)modulesConformingToProtocol:(Protocol *)protocol
