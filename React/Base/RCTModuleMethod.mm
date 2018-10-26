@@ -240,21 +240,21 @@ if (value) {                         \
 [retainedObjects addObject:value]; \
 }                                    \
 
-#if RCT_DEBUG
-#define BLOCK_CASE(_block_args, _block) RCT_RETAINED_ARG_BLOCK(         \
-if (json && ![json isKindOfClass:[NSNumber class]]) {                 \
-RCTLogArgumentError(weakSelf, index, json, "should be a function"); \
-return NO;                                                          \
-}                                                                     \
-__block BOOL didInvoke = NO;                                          \
-__COPY_BLOCK(^_block_args {                                           \
-if (checkCallbackMultipleInvocations(&didInvoke)) _block            \
-});                                                                   \
-)
-#else
+//#if RCT_DEBUG
+//#define BLOCK_CASE(_block_args, _block) RCT_RETAINED_ARG_BLOCK(         \
+//if (json && ![json isKindOfClass:[NSNumber class]]) {                 \
+//RCTLogArgumentError(weakSelf, index, json, "should be a function"); \
+//return NO;                                                          \
+//}                                                                     \
+//__block BOOL didInvoke = NO;                                          \
+//__COPY_BLOCK(^_block_args {                                           \
+//if (checkCallbackMultipleInvocations(&didInvoke)) _block            \
+//});                                                                   \
+//)
+//#else
 #define BLOCK_CASE(_block_args, _block) \
 RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
-#endif
+//#endif
   
   for (NSUInteger i = 2; i < numberOfArguments; i++) {
     const char *objcType = [methodSignature getArgumentTypeAtIndex:i];
@@ -321,7 +321,11 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
           }
         }
       }
-    }  else {
+    } else if ([typeName isEqualToString:@"RCTResponseSenderBlock"]) {
+      BLOCK_CASE((NSArray *args), {
+       // [bridge enqueueCallback:json args:args];
+      });
+    } else {
       // Unknown argument type
       RCTLogError(@"Unknown argument type '%@' in method %@. Extend RCTConvert to support this type.",
                   typeName, [self methodName]);
