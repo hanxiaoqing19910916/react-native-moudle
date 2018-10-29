@@ -97,6 +97,10 @@
 		8A22B9F1217DAE7B001B53F6 /* RCTManagedPointer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9EF217DAE7B001B53F6 /* RCTManagedPointer.mm */; };
 		8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */; };
 		8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */; };
+		8AF3A90D2186EA6400842772 /* RCTNativeModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */; };
+		8AF3A90E2186EA6400842772 /* RCTNativeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A90C2186EA6400842772 /* RCTNativeModule.h */; };
+		8AF3A9112186EAB300842772 /* RCTCxxUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A90F2186EAB300842772 /* RCTCxxUtils.mm */; };
+		8AF3A9122186EAB300842772 /* RCTCxxUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A9102186EAB300842772 /* RCTCxxUtils.h */; };
 		C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */ = {isa = PBXBuildFile; fileRef = C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */; };
 /* End PBXBuildFile section */
 
@@ -262,6 +266,10 @@
 		8A22B9EF217DAE7B001B53F6 /* RCTManagedPointer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTManagedPointer.mm; sourceTree = "<group>"; };
 		8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCxxBridge.h; sourceTree = "<group>"; };
 		8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxBridge.mm; sourceTree = "<group>"; };
+		8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeModule.mm; sourceTree = "<group>"; };
+		8AF3A90C2186EA6400842772 /* RCTNativeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNativeModule.h; sourceTree = "<group>"; };
+		8AF3A90F2186EAB300842772 /* RCTCxxUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxUtils.mm; sourceTree = "<group>"; };
+		8AF3A9102186EAB300842772 /* RCTCxxUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTCxxUtils.h; sourceTree = "<group>"; };
 		C606692D1F3CC60500E67165 /* RCTModuleMethod.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTModuleMethod.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -300,6 +308,10 @@
 		13134C7D1E296B2A00B9F3CB /* CxxModule */ = {
 			isa = PBXGroup;
 			children = (
+				8AF3A9102186EAB300842772 /* RCTCxxUtils.h */,
+				8AF3A90F2186EAB300842772 /* RCTCxxUtils.mm */,
+				8AF3A90C2186EA6400842772 /* RCTNativeModule.h */,
+				8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */,
 			);
 			path = CxxModule;
 			sourceTree = "<group>";
@@ -530,6 +542,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF3A9122186EAB300842772 /* RCTCxxUtils.h in Headers */,
 				8A071D8D2174788000DD499C /* RCTLog.h in Headers */,
 				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
 				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
@@ -538,6 +551,7 @@
 				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
 				8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */,
 				3D80DA211DF820620028D040 /* RCTBridge.h in Headers */,
+				8AF3A90E2186EA6400842772 /* RCTNativeModule.h in Headers */,
 				3D80DA241DF820620028D040 /* RCTBridgeMethod.h in Headers */,
 				3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */,
 				3D80DA281DF820620028D040 /* RCTDefines.h in Headers */,
@@ -735,6 +749,7 @@
 				C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */,
 				8A071D852174783200DD499C /* RCTAssert.m in Sources */,
 				8A22B9ED217DABF1001B53F6 /* RCTConvert.m in Sources */,
+				8AF3A90D2186EA6400842772 /* RCTNativeModule.mm in Sources */,
 				59EDBCAB1FDF4E0C003573DE /* (null) in Sources */,
 				14C2CA741B3AC64300E6CBB2 /* RCTModuleData.mm in Sources */,
 				8A071D8C2174788000DD499C /* RCTLog.mm in Sources */,
@@ -742,6 +757,7 @@
 				8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */,
 				8A071D8A2174788000DD499C /* RCTUtils.m in Sources */,
 				8A22B9F1217DAE7B001B53F6 /* RCTManagedPointer.mm in Sources */,
+				8AF3A9112186EAB300842772 /* RCTCxxUtils.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
