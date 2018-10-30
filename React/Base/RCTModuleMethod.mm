@@ -188,15 +188,18 @@ RCT_EXTERN_C_END
   NSArray<RCTMethodArgument *> *arguments;
   NSString *parseMethodSignature = RCTParseMethodSignature(_methodInfo->objcName, &arguments);
   NSLog(@"RCTParseMethodSignature reslut: %@", parseMethodSignature);
+  
   _selector = NSSelectorFromString(parseMethodSignature);
   RCTAssert(_selector, @"%s is not a valid selector", _methodInfo->objcName);
   
   // Create method invocation
   NSMethodSignature *methodSignature = [_moduleClass instanceMethodSignatureForSelector:_selector];
   RCTAssert(methodSignature, @"%s is not a recognized Objective-C method.", sel_getName(_selector));
+  
   NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
   invocation.selector = _selector;
   _invocation = invocation;
+  
   NSMutableArray *retainedObjects = [NSMutableArray array];
   _retainedObjects = retainedObjects;
   
@@ -220,14 +223,14 @@ RCT_EXTERN_C_END
 }]
   
 #define __PRIMITIVE_CASE(_type, _nullable) {                                           \
-isNullableType = _nullable;                                                          \
-_type (*convert)(id, SEL, id) = (__typeof__(convert))objc_msgSend;                   \
-[argumentBlocks addObject:^(__unused RCTBridge *bridge, NSUInteger index, id json) { \
-_type value = convert([RCTConvert class], selector, json);                         \
-[invocation setArgument:&value atIndex:(index) + 2];                               \
-return YES;                                                                        \
-}];                                                                                  \
-break;                                                                               \
+  isNullableType = _nullable;                                                          \
+  _type (*convert)(id, SEL, id) = (__typeof__(convert))objc_msgSend;                   \
+  [argumentBlocks addObject:^(__unused RCTBridge *bridge, NSUInteger index, id json) { \
+    _type value = convert([RCTConvert class], selector, json);                         \
+    [invocation setArgument:&value atIndex:(index) + 2];                               \
+    return YES;                                                                        \
+  }];                                                                                  \
+  break;                                                                               \
 }
   
 #define PRIMITIVE_CASE(_type) __PRIMITIVE_CASE(_type, NO)
@@ -235,10 +238,10 @@ break;                                                                          
   
   // Explicitly copy the block
 #define __COPY_BLOCK(block...)         \
-id value = [block copy];             \
-if (value) {                         \
-[retainedObjects addObject:value]; \
-}                                    \
+  id value = [block copy];             \
+  if (value) {                         \
+    [retainedObjects addObject:value]; \
+  }                                    \
 
 //#if RCT_DEBUG
 //#define BLOCK_CASE(_block_args, _block) RCT_RETAINED_ARG_BLOCK(         \
@@ -258,6 +261,12 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
   
   for (NSUInteger i = 2; i < numberOfArguments; i++) {
     const char *objcType = [methodSignature getArgumentTypeAtIndex:i];
+    
+    if (!strcmp(objcType, "@?")) { // Block first Handled
+      RCT_RETAINED_ARG_BLOCK(id value = [json copy];);
+      continue;
+    }
+  
     BOOL isNullableType = NO;
     RCTMethodArgument *argument = arguments[i - 2];
     NSString *typeName = argument.type;
@@ -285,9 +294,7 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
         case _C_ID: {
           isNullableType = YES;
           id (*convert)(id, SEL, id) = (__typeof__(convert))objc_msgSend;
-          RCT_RETAINED_ARG_BLOCK(
-                                 id value = convert([RCTConvert class], selector, json);
-                                 );
+          RCT_RETAINED_ARG_BLOCK(id value = convert([RCTConvert class], selector, json); );
           break;
         }
           
@@ -321,10 +328,6 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
           }
         }
       }
-    } else if ([typeName isEqualToString:@"RCTResponseSenderBlock"]) {
-      BLOCK_CASE((NSArray *args), {
-       // [bridge enqueueCallback:json args:args];
-      });
     } else {
       // Unknown argument type
       RCTLogError(@"Unknown argument type '%@' in method %@. Extend RCTConvert to support this type.",
@@ -340,7 +343,7 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
       }
       nullability = RCTNonnullable;
     }
-    
+
     /**
      * Special case - Numbers are not nullable in Android, so we
      * don't support this for now. In future we may allow it.
@@ -356,7 +359,7 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
       }
       nullability = RCTNonnullable;
     }
-    
+
     if (nullability == RCTNonnullable) {
       RCTArgumentBlock oldBlock = argumentBlocks[i - 2];
       argumentBlocks[i - 2] = ^(RCTBridge *bridge, NSUInteger index, id json) {
@@ -514,6 +517,3 @@ RCT_RETAINED_ARG_BLOCK( __COPY_BLOCK(^_block_args { _block }); )
           [self class], self, [self methodName], self.JSMethodName, RCTFunctionDescriptorFromType(self.functionType)];
 }
 @end
-
-
-

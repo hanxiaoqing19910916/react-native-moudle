@@ -12,6 +12,7 @@
 #import <React/RCTUtils.h>
 
 
+
 namespace facebook {
 namespace react {
 
@@ -19,7 +20,6 @@ std::vector<std::unique_ptr<NativeModule>> createNativeModules(NSArray<RCTModule
 {
   std::vector<std::unique_ptr<NativeModule>> nativeModules;
   for (RCTModuleData *moduleData in modules) {
-
       nativeModules.emplace_back(std::make_unique<RCTNativeModule>(bridge, moduleData));
   }
   return nativeModules;
