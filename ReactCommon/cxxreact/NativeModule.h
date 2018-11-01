@@ -5,6 +5,9 @@
 
 #pragma once
 
+#ifndef NativeModule_H
+#define NativeModule_H
+
 #include <string>
 #include <vector>
 
@@ -41,3 +44,5 @@ class NativeModule {
 
 }
 }
+
+#endif

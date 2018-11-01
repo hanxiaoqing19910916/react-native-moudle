@@ -6,18 +6,17 @@
  */
 
 #include <memory>
-
+#import "RCTNativeModule.h"
+#import <cxxreact/ModuleRegistry.h>
 
 @class RCTBridge;
 @class RCTModuleData;
 
-#import "RCTNativeModule.h"
-
 namespace facebook {
 namespace react {
 
-
 std::vector<std::unique_ptr<NativeModule>> createNativeModules(NSArray<RCTModuleData *> *modules, RCTBridge *bridge);
-
+  
+std::shared_ptr<ModuleRegistry> buildModuleRegistry();
 
 } }

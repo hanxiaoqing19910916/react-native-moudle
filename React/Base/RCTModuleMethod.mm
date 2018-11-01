@@ -9,10 +9,11 @@
 #import "RCTConvert.h"
 
 #import "RCTLog.h"
-#import "RCTManagedPointer.h"
+
+#import "RCTUtils.h"
 #import "RCTParserUtils.h"
  
-#import "RCTUtils.h"
+
 
 typedef BOOL (^RCTArgumentBlock)(RCTBridge *, NSUInteger, id);
 
@@ -187,7 +188,7 @@ RCT_EXTERN_C_END
 {
   NSArray<RCTMethodArgument *> *arguments;
   NSString *parseMethodSignature = RCTParseMethodSignature(_methodInfo->objcName, &arguments);
-  NSLog(@"RCTParseMethodSignature reslut: %@", parseMethodSignature);
+  //NSLog(@"RCTParseMethodSignature reslut: %@", parseMethodSignature);
   
   _selector = NSSelectorFromString(parseMethodSignature);
   RCTAssert(_selector, @"%s is not a valid selector", _methodInfo->objcName);

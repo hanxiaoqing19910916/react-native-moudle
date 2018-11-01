@@ -79,10 +79,6 @@ typedef void (^RCTPendingCall)();
  
   // Initialize all native modules that cannot be loaded lazily
   (void)[self _initializeModules:RCTGetModuleClasses() lazilyDiscovered:NO];
-
-  // Dispatch the instance initialization as soon as the initial module metadata has
-  // been collected (see initModules)
-   [self _buildModuleRegistry];
 }
 
 - (NSArray<Class> *)moduleClasses
@@ -193,22 +189,6 @@ typedef void (^RCTPendingCall)();
 
 
 
-- (std::shared_ptr<ModuleRegistry>)_buildModuleRegistry
-{
-  if (!self.valid) {
-    return {};
-  }
-  
-  __weak __typeof(self) weakSelf = self;
-  ModuleRegistry::ModuleNotFoundCallback moduleNotFoundCallback = ^bool(const std::string &name) {
-    return true;
-  };
-  
-  auto registry = std::make_shared<ModuleRegistry>(
-                                                   createNativeModules(_moduleDataByID, self),
-                                                   moduleNotFoundCallback);
-  return registry;
-}
 
 - (void)dispatchBlock:(dispatch_block_t)block
                 queue:(dispatch_queue_t)queue
