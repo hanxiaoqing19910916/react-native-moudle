@@ -108,6 +108,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init)
 
 - (void)setUp
 {
+  _valid = YES;
   self.batchedBridge = [[RCTCxxBridge alloc] initWithParentBridge:self];
   [self.batchedBridge start];
 }

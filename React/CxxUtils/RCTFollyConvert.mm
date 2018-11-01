@@ -19,7 +19,8 @@ id convertFollyDynamicToId(const folly::dynamic &dyn) {
 
   switch (dyn.type()) {
     case folly::dynamic::NULLT:
-      return (id)kCFNull;
+//      return (id)kCFNull;
+      return @[];
     case folly::dynamic::BOOL:
       return dyn.getBool() ? @YES : @NO;
     case folly::dynamic::INT64:

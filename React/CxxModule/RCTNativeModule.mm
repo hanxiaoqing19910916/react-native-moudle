@@ -65,13 +65,13 @@ void RCTNativeModule::invoke(unsigned int methodId, folly::dynamic &&params, int
     #endif
     invokeInner(weakBridge, weakModuleData, methodId, std::move(params));
   };
-
-  dispatch_queue_t queue = m_moduleData.methodQueue;
-  if (queue == RCTJSThread) {
-    block();
-  } else if (queue) {
-    dispatch_async(queue, block);
-  }
+  block();
+//  dispatch_queue_t queue = m_moduleData.methodQueue;
+//  if (queue == RCTJSThread) {
+//    block();
+//  } else if (queue) {
+//    dispatch_async(queue, block);
+//  }
 }
 
 MethodCallResult RCTNativeModule::callSerializableNativeHook(unsigned int reactMethodId, folly::dynamic &&params) {
