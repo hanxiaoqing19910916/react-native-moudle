@@ -34,13 +34,16 @@ namespace facebook {
 namespace react {
 
   
-  
 std::shared_ptr<ModuleRegistry> buildModuleRegistry()
 {
-  return std::make_shared<ModuleRegistry>(createNativeModules(nullptr, nullptr),
+  //  init a Bridge
+  RCTBridge *rctBridge = [[RCTBridge alloc] initWithModuleProvider:nil launchOptions:nil];
+  NSMutableArray<RCTModuleData *> *moduleDataByID =  [(RCTCxxBridge *)rctBridge.batchedBridge moduleDataByID];
+  return std::make_shared<ModuleRegistry>(createNativeModules(moduleDataByID, rctBridge),
                                                      nullptr);
 }
 
+  
 std::vector<std::unique_ptr<NativeModule>> createNativeModules(NSArray<RCTModuleData *> *modules, RCTBridge *bridge)
 {
   std::vector<std::unique_ptr<NativeModule>> nativeModules;

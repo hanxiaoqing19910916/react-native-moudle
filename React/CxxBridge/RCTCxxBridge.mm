@@ -29,7 +29,6 @@ typedef void (^RCTPendingCall)();
 
   // Native modules
   NSMutableDictionary<NSString *, RCTModuleData *> *_moduleDataByName;
-  NSMutableArray<RCTModuleData *> *_moduleDataByID;
   NSMutableArray<Class> *_moduleClassesByID;
 }
 

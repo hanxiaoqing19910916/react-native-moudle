@@ -6,4 +6,7 @@
 
 - (instancetype)initWithParentBridge:(RCTBridge *)bridge NS_DESIGNATED_INITIALIZER;
 
+@property (nonatomic, strong) NSMutableArray<RCTModuleData *> *moduleDataByID;
+
+
 @end
