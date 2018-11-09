@@ -14,8 +14,9 @@
 
 namespace facebook {
 namespace react {
-
-std::vector<std::unique_ptr<NativeModule>> createNativeModules(NSArray<RCTModuleData *> *modules, RCTBridge *bridge);
+  
+std::unordered_map<std::string, std::unique_ptr<NativeModule>> createNativeModules(NSDictionary<NSString *, RCTModuleData *> *moduleDataByName,
+                                                               RCTBridge *bridge);
   
 std::shared_ptr<ModuleRegistry> buildModuleRegistry();
 

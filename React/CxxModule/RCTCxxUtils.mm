@@ -38,19 +38,20 @@ std::shared_ptr<ModuleRegistry> buildModuleRegistry()
 {
   //  init a Bridge
   RCTBridge *rctBridge = [[RCTBridge alloc] initWithModuleProvider:nil launchOptions:nil];
-  NSMutableArray<RCTModuleData *> *moduleDataByID =  [(RCTCxxBridge *)rctBridge.batchedBridge moduleDataByID];
-  return std::make_shared<ModuleRegistry>(createNativeModules(moduleDataByID, rctBridge),
+  NSMutableDictionary<NSString *, RCTModuleData *> *moduleDataByName = [(RCTCxxBridge *)rctBridge.batchedBridge moduleDataByName];
+  return std::make_shared<ModuleRegistry>(createNativeModules(moduleDataByName, rctBridge),
                                                      nullptr);
 }
 
   
-std::vector<std::unique_ptr<NativeModule>> createNativeModules(NSArray<RCTModuleData *> *modules, RCTBridge *bridge)
+std::unordered_map<std::string, std::unique_ptr<NativeModule>> createNativeModules(NSDictionary<NSString *, RCTModuleData *> *moduleDataByName, RCTBridge *bridge)
 {
-  std::vector<std::unique_ptr<NativeModule>> nativeModules;
-  for (RCTModuleData *moduleData in modules) {
-    nativeModules.emplace_back(std::make_unique<RCTNativeModule>(bridge, moduleData));
+  std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles;
+  for (NSString *moduleName in moduleDataByName) {
+    std::string name = moduleName.UTF8String;
+    nameMoudles[name] = std::make_unique<RCTNativeModule>(bridge, moduleDataByName[moduleName]);
   }
-  return nativeModules;
+  return nameMoudles;
 }
   
 } }

@@ -37,18 +37,23 @@ class RN_EXPORT ModuleRegistry {
   // notifyCatalystInstanceDestroy: use RAII instead
 
   using ModuleNotFoundCallback = std::function<bool(const std::string &name)>;
-
-  ModuleRegistry(std::vector<std::unique_ptr<NativeModule>> modules, ModuleNotFoundCallback callback = nullptr);
+  
+  ModuleRegistry(std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles, ModuleNotFoundCallback callback = nullptr);
+  
+  
   void registerModules(std::vector<std::unique_ptr<NativeModule>> modules);
 
   std::vector<std::string> moduleNames();
 
   folly::Optional<ModuleConfig> getConfig(const std::string& name);
 
-  void callNativeMethod(unsigned int moduleId, unsigned int methodId, folly::dynamic&& params, int callId);
-  MethodCallResult callSerializableNativeHook(unsigned int moduleId, unsigned int methodId, folly::dynamic&& args);
+  void callNativeMethod(std::string moduleName, unsigned int methodId, folly::dynamic&& params, int callId);
+  MethodCallResult callSerializableNativeHook(std::string moduleName, unsigned int methodId, folly::dynamic&& args);
 
  private:
+  std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles_;
+  
+  
   // This is always populated
   std::vector<std::unique_ptr<NativeModule>> modules_;
 

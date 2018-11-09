@@ -28,6 +28,7 @@ typedef void (^RCTPendingCall)();
   NSMutableArray<RCTPendingCall> *_pendingCalls;
 
   // Native modules
+  NSMutableArray<RCTModuleData *> *_moduleDataByID;
   NSMutableDictionary<NSString *, RCTModuleData *> *_moduleDataByName;
   NSMutableArray<Class> *_moduleClassesByID;
 }
@@ -148,7 +149,6 @@ typedef void (^RCTPendingCall)();
   }
   return moduleDataById;
 }
-
 
 
 - (NSArray<RCTModuleData *> *)registerModulesForClasses:(NSArray<Class> *)moduleClasses

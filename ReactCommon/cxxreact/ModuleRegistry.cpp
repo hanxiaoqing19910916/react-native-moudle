@@ -30,8 +30,9 @@ std::string normalizeName(std::string name) {
 
 }
 
-ModuleRegistry::ModuleRegistry(std::vector<std::unique_ptr<NativeModule>> modules, ModuleNotFoundCallback callback)
-    : modules_{std::move(modules)}, moduleNotFoundCallback_{callback} {}
+  
+ModuleRegistry::ModuleRegistry(std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles, ModuleNotFoundCallback callback)
+  : nameMoudles_{std::move(nameMoudles)}, moduleNotFoundCallback_{callback} {}
 
 void ModuleRegistry::updateModuleNamesFromIndex(size_t index) {
   for (; index < modules_.size(); index++ ) {
@@ -147,20 +148,20 @@ folly::Optional<ModuleConfig> ModuleRegistry::getConfig(const std::string& name)
   }
 }
 
-void ModuleRegistry::callNativeMethod(unsigned int moduleId, unsigned int methodId, folly::dynamic&& params, int callId) {
-  if (moduleId >= modules_.size()) {
-    throw std::runtime_error(
-      folly::to<std::string>("moduleId ", moduleId, " out of range [0..", modules_.size(), ")"));
-  }
-  modules_[moduleId]->invoke(methodId, std::move(params), callId);
+void ModuleRegistry::callNativeMethod(std::string moduleName, unsigned int methodId, folly::dynamic&& params, int callId) {
+//  if (moduleId >= modules_.size()) {
+//    throw std::runtime_error(
+//      folly::to<std::string>("moduleId ", moduleName, " out of range [0..", modules_.size(), ")"));
+//  }
+  nameMoudles_[moduleName]->invoke(methodId, std::move(params), callId);
 }
 
-MethodCallResult ModuleRegistry::callSerializableNativeHook(unsigned int moduleId, unsigned int methodId, folly::dynamic&& params) {
-  if (moduleId >= modules_.size()) {
-    throw std::runtime_error(
-      folly::to<std::string>("moduleId ", moduleId, "out of range [0..", modules_.size(), ")"));
-  }
-  return modules_[moduleId]->callSerializableNativeHook(methodId, std::move(params));
+MethodCallResult ModuleRegistry::callSerializableNativeHook(std::string moduleName, unsigned int methodId, folly::dynamic&& params) {
+//  if (moduleId >= modules_.size()) {
+//    throw std::runtime_error(
+//      folly::to<std::string>("moduleId ", moduleId, "out of range [0..", modules_.size(), ")"));
+//  }
+  return nameMoudles_[moduleName]->callSerializableNativeHook(methodId, std::move(params));
 }
 
 }}
