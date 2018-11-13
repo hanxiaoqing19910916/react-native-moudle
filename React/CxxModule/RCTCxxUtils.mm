@@ -13,23 +13,6 @@
 #import "RCTCxxBridge.h"
 
 
-//- (std::shared_ptr<ModuleRegistry>)_buildModuleRegistry
-//{
-//  if (!self.valid) {
-//    return {};
-//  }
-//
-//  __weak __typeof(self) weakSelf = self;
-//  ModuleRegistry::ModuleNotFoundCallback moduleNotFoundCallback = ^bool(const std::string &name) {
-//    return true;
-//  };
-//
-//  auto registry = std::make_shared<ModuleRegistry>(
-//                                                   createNativeModules(_moduleDataByID, self),
-//                                                   moduleNotFoundCallback);
-//  return registry;
-//}
-
 namespace facebook {
 namespace react {
 

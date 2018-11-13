@@ -37,8 +37,8 @@ class NativeModule {
   virtual std::string getName() = 0;
   virtual std::vector<MethodDescriptor> getMethods() = 0;
   virtual folly::dynamic getConstants() = 0;
-  virtual void invoke(unsigned int reactMethodId, folly::dynamic&& params, int callId) = 0;
-  virtual MethodCallResult callSerializableNativeHook(unsigned int reactMethodId, folly::dynamic&& args) = 0;
+  virtual void invoke(std::string methodName, folly::dynamic&& params, int callId) = 0;
+  virtual MethodCallResult callSerializableNativeHook(std::string methodName, folly::dynamic&& args) = 0;
 };
   
 

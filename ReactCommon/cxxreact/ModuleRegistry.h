@@ -23,7 +23,7 @@ namespace react {
 class NativeModule;
 
 struct ModuleConfig {
-  size_t index;
+  std::string name;
   folly::dynamic config;
 };
 
@@ -47,21 +47,11 @@ class RN_EXPORT ModuleRegistry {
 
   folly::Optional<ModuleConfig> getConfig(const std::string& name);
 
-  void callNativeMethod(std::string moduleName, unsigned int methodId, folly::dynamic&& params, int callId);
-  MethodCallResult callSerializableNativeHook(std::string moduleName, unsigned int methodId, folly::dynamic&& args);
+  void callNativeMethod(std::string moduleName, std::string methodName, folly::dynamic&& params, int callId);
+  MethodCallResult callSerializableNativeHook(std::string moduleName, std::string methodName, folly::dynamic&& args);
 
  private:
   std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles_;
-  
-  
-  // This is always populated
-  std::vector<std::unique_ptr<NativeModule>> modules_;
-
-  // This is used to extend the population of modulesByName_ if registerModules is called after moduleNames
-  void updateModuleNamesFromIndex(size_t size);
-
-  // This is only populated if moduleNames() is called.  Values are indices into modules_.
-  std::unordered_map<std::string, size_t> modulesByName_;
 
   // This is populated with modules that are requested via getConfig but are unknown.
   // An error will be thrown if they are subsequently added to the registry.

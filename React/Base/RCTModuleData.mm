@@ -14,7 +14,7 @@
   id<RCTBridgeModule> _instance;
   __weak RCTBridge *_bridge;
   
-  NSArray<id<RCTBridgeMethod>> *_methods;
+  NSDictionary<NSString *, id<RCTBridgeMethod>> *_methodsByName;
   
   RCTBridgeModuleProvider _moduleProvider;
   std::mutex _instanceLock;
@@ -239,14 +239,11 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init);
   return RCTBridgeModuleNameForClass(_moduleClass);
 }
 
-- (NSArray<id<RCTBridgeMethod>> *)methods
+
+- (NSDictionary<NSString *,id<RCTBridgeMethod>> *)methodsByName
 {
-  if (!_methods) {
-    NSMutableArray<id<RCTBridgeMethod>> *moduleMethods = [NSMutableArray new];
-    
-    if ([_moduleClass instancesRespondToSelector:@selector(methodsToExport)]) {
-      [moduleMethods addObjectsFromArray:[self.instance methodsToExport]];
-    }
+  if (!_methodsByName) {
+    NSMutableDictionary<NSString *, id<RCTBridgeMethod>> *methodsByName = [NSMutableDictionary dictionaryWithCapacity:100];
     
     unsigned int methodCount;
     Class cls = _moduleClass;
@@ -262,17 +259,17 @@ RCT_NOT_IMPLEMENTED(- (instancetype)init);
           auto exportedMethod = ((const RCTMethodInfo *(*)(id, SEL))imp)(_moduleClass, selector);
           id<RCTBridgeMethod> moduleMethod = [[RCTModuleMethod alloc] initWithExportedMethod:exportedMethod
                                                                                  moduleClass:_moduleClass];
-          [moduleMethods addObject:moduleMethod];
+          NSString *methodName = [NSString stringWithCString:[moduleMethod JSMethodName] encoding:NSUTF8StringEncoding];
+          [methodsByName setObject:moduleMethod forKey:methodName];
         }
       }
       
       free(methods);
       cls = class_getSuperclass(cls);
     }
-    
-    _methods = [moduleMethods copy];
+    _methodsByName = [methodsByName copy];
   }
-  return _methods;
+  return _methodsByName;
 }
 - (NSString *)description
 {

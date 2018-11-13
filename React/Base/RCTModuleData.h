@@ -51,11 +51,10 @@ typedef id<RCTBridgeModule>(^RCTBridgeModuleProvider)(void);
 @property (nonatomic, copy, readonly) NSString *name; // get module name
 
 /**
- * Returns the module methods. Note that this will gather the methods the first
+ * Returns the module methods by name. Note that this will gather the methods the first
  * time it is called and then memoize the results.
  */
-@property (nonatomic, copy, readonly) NSArray<id<RCTBridgeMethod>> *methods;
-
+@property (nonatomic, copy, readonly) NSDictionary<NSString *, id<RCTBridgeMethod>> *methodsByName;
 
 /**
  * Returns YES if module instance has already been initialized; NO otherwise.

@@ -279,12 +279,6 @@ return &config; \
  */
 + (BOOL)requiresMainQueueSetup;
 
-/**
- * Injects methods into JS.  Entries in this array are used in addition to any
- * methods defined using the macros above.  This method is called only once,
- * before registration.
- */
-- (NSArray<id<RCTBridgeMethod>> *)methodsToExport;
 
 /**
  * Injects constants into JS. These constants are made accessible via NativeModules.ModuleName.X. It is only called once
