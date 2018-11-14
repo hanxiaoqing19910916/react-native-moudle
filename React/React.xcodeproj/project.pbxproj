@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */; };
 		130443A21E3FEAA900D93A67 /* RCTFollyConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 130443A01E3FEAA900D93A67 /* RCTFollyConvert.mm */; };
 		139D7E911E25C70B00323FB7 /* bignum-dtoa.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E391E25C5A300323FB7 /* bignum-dtoa.cc */; };
 		139D7E931E25C70B00323FB7 /* bignum.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E3B1E25C5A300323FB7 /* bignum.cc */; };
@@ -68,7 +68,7 @@
 		3D80DA211DF820620028D040 /* RCTBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 83CBBA5E1A601EAA00E9B192 /* RCTBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D80DA241DF820620028D040 /* RCTBridgeMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 13AFBCA11C07287B00BBAEAA /* RCTBridgeMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 830213F31A654E0800B993E6 /* RCTBridgeModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D80DA281DF820620028D040 /* RCTDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 13AF1F851AE6E777005F5298 /* RCTDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D80DA281DF820620028D040 /* RCTDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 13AF1F851AE6E777005F5298 /* RCTDefines.h */; };
 		3D80DA351DF820620028D040 /* RCTModuleData.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C2CA721B3AC64300E6CBB2 /* RCTModuleData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D80DA361DF820620028D040 /* RCTModuleMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C2CA6F1B3AC63800E6CBB2 /* RCTModuleMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DA981A01E5B0E34004F2374 /* CxxModule.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0A71E03699D0018521A /* CxxModule.h */; };
@@ -78,12 +78,12 @@
 		59EDBCBE1FDF4E43003573DE /* (null) in Copy Headers */ = {isa = PBXBuildFile; };
 		59EDBCC01FDF4E43003573DE /* (null) in Copy Headers */ = {isa = PBXBuildFile; };
 		83CBBA601A601EAA00E9B192 /* RCTBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 83CBBA5F1A601EAA00E9B192 /* RCTBridge.m */; };
-		8A071D842174783200DD499C /* RCTAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D822174783100DD499C /* RCTAssert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A071D842174783200DD499C /* RCTAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D822174783100DD499C /* RCTAssert.h */; };
 		8A071D852174783200DD499C /* RCTAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A071D832174783100DD499C /* RCTAssert.m */; };
 		8A071D8A2174788000DD499C /* RCTUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A071D862174788000DD499C /* RCTUtils.m */; };
-		8A071D8B2174788000DD499C /* RCTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D872174788000DD499C /* RCTUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A071D8B2174788000DD499C /* RCTUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D872174788000DD499C /* RCTUtils.h */; };
 		8A071D8C2174788000DD499C /* RCTLog.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A071D882174788000DD499C /* RCTLog.mm */; };
-		8A071D8D2174788000DD499C /* RCTLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D892174788000DD499C /* RCTLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A071D8D2174788000DD499C /* RCTLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A071D892174788000DD499C /* RCTLog.h */; };
 		8A22B9EA217DAB76001B53F6 /* RCTParserUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A22B9E8217DAB76001B53F6 /* RCTParserUtils.h */; };
 		8A22B9EB217DAB76001B53F6 /* RCTParserUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */; };
 		8A22B9EC217DABEF001B53F6 /* RCTConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A22B9E4217DAADE001B53F6 /* RCTConvert.h */; };
@@ -535,17 +535,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8AF3A9122186EAB300842772 /* RCTCxxUtils.h in Headers */,
-				8A071D8D2174788000DD499C /* RCTLog.h in Headers */,
-				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
-				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
 				8A22B9EA217DAB76001B53F6 /* RCTParserUtils.h in Headers */,
-				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
 				8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */,
 				3D80DA211DF820620028D040 /* RCTBridge.h in Headers */,
 				8AF3A90E2186EA6400842772 /* RCTNativeModule.h in Headers */,
 				3D80DA241DF820620028D040 /* RCTBridgeMethod.h in Headers */,
-				3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */,
+				8A071D8D2174788000DD499C /* RCTLog.h in Headers */,
+				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
+				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
+				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
 				3D80DA281DF820620028D040 /* RCTDefines.h in Headers */,
+				3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */,
 				3D80DA351DF820620028D040 /* RCTModuleData.h in Headers */,
 				3D80DA361DF820620028D040 /* RCTModuleMethod.h in Headers */,
 				8A22B9EC217DABEF001B53F6 /* RCTConvert.h in Headers */,
@@ -679,7 +679,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\nexec ./scripts/ios-install-third-party.sh";
+			shellScript = "cd \"$SRCROOT/..\"\nexec ./scripts/ios-install-third-party.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -39,8 +39,6 @@ class RN_EXPORT ModuleRegistry {
   using ModuleNotFoundCallback = std::function<bool(const std::string &name)>;
   
   ModuleRegistry(std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles, ModuleNotFoundCallback callback = nullptr);
-  
-  
   void registerModules(std::vector<std::unique_ptr<NativeModule>> modules);
 
   std::vector<std::string> moduleNames();

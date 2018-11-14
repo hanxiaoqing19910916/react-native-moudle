@@ -62,11 +62,10 @@ void ModuleRegistry::registerModules(std::vector<std::unique_ptr<NativeModule>> 
 
 std::vector<std::string> ModuleRegistry::moduleNames() {
   std::vector<std::string> names;
-//  for (size_t i = 0; i < modules_.size(); i++) {
-//    std::string name = normalizeName(modules_[i]->getName());
-//    modulesByName_[name] = i;
-//    names.push_back(std::move(name));
-//  }
+  for (auto& m : nameMoudles_) {
+     std::string name = normalizeName(m.second->getName());
+     names.push_back(std::move(name));
+  }
   return names;
 }
 
@@ -136,7 +135,7 @@ void ModuleRegistry::callNativeMethod(std::string moduleName, std::string method
   auto it = nameMoudles_.find(moduleName);
   if (it == nameMoudles_.end()) {
     throw std::runtime_error(
-      folly::to<std::string>("moduleName", moduleName, " not existed"));
+                             folly::to<std::string>("moduleName: ", moduleName, " not existed"));
   }
   NativeModule *module = it->second.get();
   module->invoke(methodName, std::move(params), callId);
