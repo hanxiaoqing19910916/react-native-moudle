@@ -6,15 +6,12 @@
  */
 
 #import <Foundation/Foundation.h>
-
-#include <folly/dynamic.h>
-
-//#include "json11.hpp"
+#include "json11.hpp"
 
 namespace facebook {
 namespace react {
 
-folly::dynamic convertIdToFollyDynamic(id json);
-id convertFollyDynamicToId(const folly::dynamic &dyn);
-        
+//folly::dynamic convertIdToFollyDynamic(id json);
+//id convertFollyDynamicToId(const folly::dynamic &dyn);
+//        
 } }

@@ -12,11 +12,6 @@
 
 #include "NativeModule.h"
 
-//#include <folly/Optional.h>
-//#include <folly/dynamic.h>
-
-//#include "json11.hpp"
-
 #ifndef RN_EXPORT
 #define RN_EXPORT __attribute__((visibility("default")))
 #endif

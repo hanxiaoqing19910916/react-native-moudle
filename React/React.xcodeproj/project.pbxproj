@@ -9,54 +9,8 @@
 /* Begin PBXBuildFile section */
 		130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */; };
 		130443A21E3FEAA900D93A67 /* RCTFollyConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 130443A01E3FEAA900D93A67 /* RCTFollyConvert.mm */; };
-		139D7E911E25C70B00323FB7 /* bignum-dtoa.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E391E25C5A300323FB7 /* bignum-dtoa.cc */; };
-		139D7E931E25C70B00323FB7 /* bignum.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E3B1E25C5A300323FB7 /* bignum.cc */; };
-		139D7E951E25C70B00323FB7 /* cached-powers.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E3D1E25C5A300323FB7 /* cached-powers.cc */; };
-		139D7E971E25C70B00323FB7 /* diy-fp.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E3F1E25C5A300323FB7 /* diy-fp.cc */; };
-		139D7E991E25C70B00323FB7 /* double-conversion.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E411E25C5A300323FB7 /* double-conversion.cc */; };
-		139D7E9B1E25C70B00323FB7 /* fast-dtoa.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E431E25C5A300323FB7 /* fast-dtoa.cc */; };
-		139D7E9D1E25C70B00323FB7 /* fixed-dtoa.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E451E25C5A300323FB7 /* fixed-dtoa.cc */; };
-		139D7EA01E25C70B00323FB7 /* strtod.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7E481E25C5A300323FB7 /* strtod.cc */; };
-		139D7EA51E25C85300323FB7 /* bignum-dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E3A1E25C5A300323FB7 /* bignum-dtoa.h */; };
-		139D7EA61E25C85300323FB7 /* bignum.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E3C1E25C5A300323FB7 /* bignum.h */; };
-		139D7EA71E25C85300323FB7 /* cached-powers.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E3E1E25C5A300323FB7 /* cached-powers.h */; };
-		139D7EA81E25C85300323FB7 /* diy-fp.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E401E25C5A300323FB7 /* diy-fp.h */; };
-		139D7EA91E25C85300323FB7 /* double-conversion.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E421E25C5A300323FB7 /* double-conversion.h */; };
-		139D7EAA1E25C85300323FB7 /* fast-dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E441E25C5A300323FB7 /* fast-dtoa.h */; };
-		139D7EAB1E25C85300323FB7 /* fixed-dtoa.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E461E25C5A300323FB7 /* fixed-dtoa.h */; };
-		139D7EAC1E25C85300323FB7 /* ieee.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E471E25C5A300323FB7 /* ieee.h */; };
-		139D7EAD1E25C85300323FB7 /* strtod.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E491E25C5A300323FB7 /* strtod.h */; };
-		139D7EAE1E25C85300323FB7 /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 139D7E4A1E25C5A300323FB7 /* utils.h */; };
-		139D7F021E25DE1100323FB7 /* logging.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EDA1E25DBDC00323FB7 /* logging.cc */; };
-		139D7F031E25DE1100323FB7 /* raw_logging.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EDB1E25DBDC00323FB7 /* raw_logging.cc */; };
-		139D7F041E25DE1100323FB7 /* signalhandler.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EDC1E25DBDC00323FB7 /* signalhandler.cc */; };
-		139D7F051E25DE1100323FB7 /* symbolize.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EDE1E25DBDC00323FB7 /* symbolize.cc */; };
-		139D7F061E25DE1100323FB7 /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EE01E25DBDC00323FB7 /* utilities.cc */; };
-		139D7F071E25DE1100323FB7 /* vlog_is_on.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7EE21E25DBDC00323FB7 /* vlog_is_on.cc */; };
-		139D7F091E25DE3700323FB7 /* demangle.cc in Sources */ = {isa = PBXBuildFile; fileRef = 139D7F081E25DE3700323FB7 /* demangle.cc */; };
-		139D84AF1E273B5600323FB7 /* Bits.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139D849D1E273B5600323FB7 /* Bits.cpp */; };
-		139D84B01E273B5600323FB7 /* Conv.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139D849F1E273B5600323FB7 /* Conv.cpp */; };
-		139D84B11E273B5600323FB7 /* dynamic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139D84A21E273B5600323FB7 /* dynamic.cpp */; };
-		139D84B31E273B5600323FB7 /* json.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 139D84A71E273B5600323FB7 /* json.cpp */; };
-		13F887581E2971D400C3C7A1 /* Demangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F887521E2971C500C3C7A1 /* Demangle.cpp */; };
-		13F887591E2971D400C3C7A1 /* StringBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F887531E2971C500C3C7A1 /* StringBase.cpp */; };
-		13F8875A1E2971D400C3C7A1 /* Unicode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F887541E2971C500C3C7A1 /* Unicode.cpp */; };
-		13F8879F1E29741900C3C7A1 /* BitsFunctexcept.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F8879C1E29740700C3C7A1 /* BitsFunctexcept.cpp */; };
-		13F887A21E2977FF00C3C7A1 /* MallocImpl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13F887A01E2977D800C3C7A1 /* MallocImpl.cpp */; };
 		14C2CA741B3AC64300E6CBB2 /* RCTModuleData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14C2CA731B3AC64300E6CBB2 /* RCTModuleData.mm */; };
-		19F61BFA1E8495CD00571D81 /* bignum-dtoa.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E3A1E25C5A300323FB7 /* bignum-dtoa.h */; };
-		19F61BFB1E8495CD00571D81 /* bignum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E3C1E25C5A300323FB7 /* bignum.h */; };
-		19F61BFC1E8495CD00571D81 /* cached-powers.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E3E1E25C5A300323FB7 /* cached-powers.h */; };
-		19F61BFD1E8495CD00571D81 /* diy-fp.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E401E25C5A300323FB7 /* diy-fp.h */; };
-		19F61BFE1E8495CD00571D81 /* double-conversion.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E421E25C5A300323FB7 /* double-conversion.h */; };
-		19F61BFF1E8495CD00571D81 /* fast-dtoa.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E441E25C5A300323FB7 /* fast-dtoa.h */; };
-		19F61C001E8495CD00571D81 /* fixed-dtoa.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E461E25C5A300323FB7 /* fixed-dtoa.h */; };
-		19F61C011E8495CD00571D81 /* ieee.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E471E25C5A300323FB7 /* ieee.h */; };
-		19F61C021E8495CD00571D81 /* strtod.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E491E25C5A300323FB7 /* strtod.h */; };
-		19F61C031E8495CD00571D81 /* utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E4A1E25C5A300323FB7 /* utils.h */; };
 		27595AB91E575C7800CCE2B1 /* NativeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0CE1E03699D0018521A /* NativeModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3D383D6D1EBD2940005632C8 /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139D7E881E25C6D100323FB7 /* libdouble-conversion.a */; };
-		3D383D6F1EBD2940005632C8 /* libthird-party.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139D7ECE1E25DB7D00323FB7 /* libthird-party.a */; };
 		3D3CD9411DE5FC5300167DC4 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3CD9251DE5FBEC00167DC4 /* libcxxreact.a */; };
 		3D80D9271DF6FA890028D040 /* RCTBridge.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 83CBBA5E1A601EAA00E9B192 /* RCTBridge.h */; };
 		3D80D92A1DF6FA890028D040 /* RCTBridgeMethod.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 13AFBCA11C07287B00BBAEAA /* RCTBridgeMethod.h */; };
@@ -104,13 +58,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1320081C1E283DCB00F0C457 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 139D7E871E25C6D100323FB7;
-			remoteInfo = "double-conversion";
-		};
 		3D3CD94B1DE5FCE700167DC4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
@@ -121,25 +68,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		139D7E861E25C6D100323FB7 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				19F61BFA1E8495CD00571D81 /* bignum-dtoa.h in CopyFiles */,
-				19F61BFB1E8495CD00571D81 /* bignum.h in CopyFiles */,
-				19F61BFC1E8495CD00571D81 /* cached-powers.h in CopyFiles */,
-				19F61BFD1E8495CD00571D81 /* diy-fp.h in CopyFiles */,
-				19F61BFE1E8495CD00571D81 /* double-conversion.h in CopyFiles */,
-				19F61BFF1E8495CD00571D81 /* fast-dtoa.h in CopyFiles */,
-				19F61C001E8495CD00571D81 /* fixed-dtoa.h in CopyFiles */,
-				19F61C011E8495CD00571D81 /* ieee.h in CopyFiles */,
-				19F61C021E8495CD00571D81 /* strtod.h in CopyFiles */,
-				19F61C031E8495CD00571D81 /* utils.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D80D91E1DF6FA530028D040 /* Copy Headers */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -196,8 +124,6 @@
 		139D7E481E25C5A300323FB7 /* strtod.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = strtod.cc; path = src/strtod.cc; sourceTree = "<group>"; };
 		139D7E491E25C5A300323FB7 /* strtod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = strtod.h; path = src/strtod.h; sourceTree = "<group>"; };
 		139D7E4A1E25C5A300323FB7 /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = utils.h; path = src/utils.h; sourceTree = "<group>"; };
-		139D7E881E25C6D100323FB7 /* libdouble-conversion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libdouble-conversion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		139D7ECE1E25DB7D00323FB7 /* libthird-party.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libthird-party.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		139D7ED81E25DBDC00323FB7 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "../third-party/glog-0.3.5/src/config.h"; sourceTree = "<group>"; };
 		139D7ED91E25DBDC00323FB7 /* demangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = demangle.h; path = "../third-party/glog-0.3.5/src/demangle.h"; sourceTree = "<group>"; };
 		139D7EDA1E25DBDC00323FB7 /* logging.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = logging.cc; path = "../third-party/glog-0.3.5/src/logging.cc"; sourceTree = "<group>"; };
@@ -261,7 +187,6 @@
 		8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTParserUtils.m; sourceTree = "<group>"; };
 		8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCxxBridge.h; sourceTree = "<group>"; };
 		8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxBridge.mm; sourceTree = "<group>"; };
-		8AEF85F221B7BD4E0045C86F /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		8AEF85F321B7BD4E0045C86F /* json11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json11.hpp; sourceTree = "<group>"; };
 		8AEF85F421B7BD4E0045C86F /* json11.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json11.cc; sourceTree = "<group>"; };
 		8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeModule.mm; sourceTree = "<group>"; };
@@ -278,8 +203,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D383D6D1EBD2940005632C8 /* libdouble-conversion.a in Frameworks */,
-				3D383D6F1EBD2940005632C8 /* libthird-party.a in Frameworks */,
 				3D3CD9411DE5FC5300167DC4 /* libcxxreact.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,8 +374,6 @@
 			children = (
 				83CBBA2E1A601D0E00E9B192 /* libReact.a */,
 				3D3CD9251DE5FBEC00167DC4 /* libcxxreact.a */,
-				139D7E881E25C6D100323FB7 /* libdouble-conversion.a */,
-				139D7ECE1E25DB7D00323FB7 /* libthird-party.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -497,7 +418,6 @@
 		8AEF85F121B7BD4E0045C86F /* json11 */ = {
 			isa = PBXGroup;
 			children = (
-				8AEF85F221B7BD4E0045C86F /* CMakeLists.txt */,
 				8AEF85F321B7BD4E0045C86F /* json11.hpp */,
 				8AEF85F421B7BD4E0045C86F /* json11.cc */,
 			);
@@ -518,23 +438,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		139D7EA41E25C7BD00323FB7 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				139D7EA51E25C85300323FB7 /* bignum-dtoa.h in Headers */,
-				139D7EA61E25C85300323FB7 /* bignum.h in Headers */,
-				139D7EA71E25C85300323FB7 /* cached-powers.h in Headers */,
-				139D7EA81E25C85300323FB7 /* diy-fp.h in Headers */,
-				139D7EA91E25C85300323FB7 /* double-conversion.h in Headers */,
-				139D7EAA1E25C85300323FB7 /* fast-dtoa.h in Headers */,
-				139D7EAB1E25C85300323FB7 /* fixed-dtoa.h in Headers */,
-				139D7EAC1E25C85300323FB7 /* ieee.h in Headers */,
-				139D7EAD1E25C85300323FB7 /* strtod.h in Headers */,
-				139D7EAE1E25C85300323FB7 /* utils.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D3CD91A1DE5FBEC00167DC4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -570,40 +473,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		139D7E871E25C6D100323FB7 /* double-conversion */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 139D7E8E1E25C6D100323FB7 /* Build configuration list for PBXNativeTarget "double-conversion" */;
-			buildPhases = (
-				190EE32F1E6A43DE00A8543A /* Install Third Party */,
-				139D7EA41E25C7BD00323FB7 /* Headers */,
-				139D7E841E25C6D100323FB7 /* Sources */,
-				139D7E861E25C6D100323FB7 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "double-conversion";
-			productName = ThirdParty;
-			productReference = 139D7E881E25C6D100323FB7 /* libdouble-conversion.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		139D7ECD1E25DB7D00323FB7 /* third-party */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 139D7ED41E25DB7D00323FB7 /* Build configuration list for PBXNativeTarget "third-party" */;
-			buildPhases = (
-				139D7ECA1E25DB7D00323FB7 /* Sources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1320081D1E283DCB00F0C457 /* PBXTargetDependency */,
-			);
-			name = "third-party";
-			productName = "third-party";
-			productReference = 139D7ECE1E25DB7D00323FB7 /* libthird-party.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		3D3CD9191DE5FBEC00167DC4 /* cxxreact */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D3CD9221DE5FBEC00167DC4 /* Build configuration list for PBXNativeTarget "cxxreact" */;
@@ -649,12 +518,6 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
-					139D7E871E25C6D100323FB7 = {
-						CreatedOnToolsVersion = 8.1;
-					};
-					139D7ECD1E25DB7D00323FB7 = {
-						CreatedOnToolsVersion = 8.1;
-					};
 					83CBBA2D1A601D0E00E9B192 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -675,68 +538,11 @@
 			targets = (
 				83CBBA2D1A601D0E00E9B192 /* React */,
 				3D3CD9191DE5FBEC00167DC4 /* cxxreact */,
-				139D7ECD1E25DB7D00323FB7 /* third-party */,
-				139D7E871E25C6D100323FB7 /* double-conversion */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		190EE32F1E6A43DE00A8543A /* Install Third Party */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Install Third Party";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "cd \"$SRCROOT/..\"\nexec ./scripts/ios-install-third-party.sh\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		139D7E841E25C6D100323FB7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				139D7E911E25C70B00323FB7 /* bignum-dtoa.cc in Sources */,
-				139D7E931E25C70B00323FB7 /* bignum.cc in Sources */,
-				139D7E951E25C70B00323FB7 /* cached-powers.cc in Sources */,
-				139D7E971E25C70B00323FB7 /* diy-fp.cc in Sources */,
-				139D7E991E25C70B00323FB7 /* double-conversion.cc in Sources */,
-				139D7E9B1E25C70B00323FB7 /* fast-dtoa.cc in Sources */,
-				139D7E9D1E25C70B00323FB7 /* fixed-dtoa.cc in Sources */,
-				139D7EA01E25C70B00323FB7 /* strtod.cc in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		139D7ECA1E25DB7D00323FB7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				139D84B01E273B5600323FB7 /* Conv.cpp in Sources */,
-				13F887591E2971D400C3C7A1 /* StringBase.cpp in Sources */,
-				139D7F031E25DE1100323FB7 /* raw_logging.cc in Sources */,
-				139D7F041E25DE1100323FB7 /* signalhandler.cc in Sources */,
-				139D84B11E273B5600323FB7 /* dynamic.cpp in Sources */,
-				139D7F061E25DE1100323FB7 /* utilities.cc in Sources */,
-				13F887A21E2977FF00C3C7A1 /* MallocImpl.cpp in Sources */,
-				139D84AF1E273B5600323FB7 /* Bits.cpp in Sources */,
-				139D7F051E25DE1100323FB7 /* symbolize.cc in Sources */,
-				139D7F071E25DE1100323FB7 /* vlog_is_on.cc in Sources */,
-				13F8875A1E2971D400C3C7A1 /* Unicode.cpp in Sources */,
-				139D7F091E25DE3700323FB7 /* demangle.cc in Sources */,
-				13F887581E2971D400C3C7A1 /* Demangle.cpp in Sources */,
-				139D7F021E25DE1100323FB7 /* logging.cc in Sources */,
-				139D84B31E273B5600323FB7 /* json.cpp in Sources */,
-				13F8879F1E29741900C3C7A1 /* BitsFunctexcept.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		3D3CD91F1DE5FBEC00167DC4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -770,11 +576,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1320081D1E283DCB00F0C457 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 139D7E871E25C6D100323FB7 /* double-conversion */;
-			targetProxy = 1320081C1E283DCB00F0C457 /* PBXContainerItemProxy */;
-		};
 		3D3CD94C1DE5FCE700167DC4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3D3CD9191DE5FBEC00167DC4 /* cxxreact */;
@@ -783,72 +584,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		139D7E8F1E25C6D100323FB7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "/usr/local/include/double-conversion";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		139D7E901E25C6D100323FB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = "/usr/local/include/double-conversion";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		139D7ED51E25DB7D00323FB7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D788F841EBD2D240063D616 /* third-party.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Debug;
-		};
-		139D7ED61E25DB7D00323FB7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3D788F841EBD2D240063D616 /* third-party.xcconfig */;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "";
-			};
-			name = Release;
-		};
 		3D3CD9231DE5FBEC00167DC4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3D788F841EBD2D240063D616 /* third-party.xcconfig */;
@@ -856,6 +591,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/cxxreact;
@@ -871,6 +607,7 @@
 				CLANG_STATIC_ANALYZER_MODE = deep;
 				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = /usr/local/include/cxxreact;
@@ -1012,12 +749,7 @@
 					"RCT_METRO_PORT=${RCT_METRO_PORT}",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../third-party/boost_1_63_0",
-					"$(SRCROOT)/../third-party/folly-2016.10.31.00",
-					"$(SRCROOT)/../third-party/glog-0.3.5/src",
-					"\"$(SRCROOT)/../ReactCommon/json11\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ReactCommon/json11\"";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-weak_framework",
@@ -1040,12 +772,7 @@
 					"RCT_METRO_PORT=${RCT_METRO_PORT}",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)/../third-party/boost_1_63_0",
-					"$(SRCROOT)/../third-party/folly-2016.10.31.00",
-					"$(SRCROOT)/../third-party/glog-0.3.5/src",
-					"\"$(SRCROOT)/../ReactCommon/json11\"",
-				);
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ReactCommon/json11\"";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-weak_framework",
@@ -1060,24 +787,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		139D7E8E1E25C6D100323FB7 /* Build configuration list for PBXNativeTarget "double-conversion" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				139D7E8F1E25C6D100323FB7 /* Debug */,
-				139D7E901E25C6D100323FB7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		139D7ED41E25DB7D00323FB7 /* Build configuration list for PBXNativeTarget "third-party" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				139D7ED51E25DB7D00323FB7 /* Debug */,
-				139D7ED61E25DB7D00323FB7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		3D3CD9221DE5FBEC00167DC4 /* Build configuration list for PBXNativeTarget "cxxreact" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -11,7 +11,7 @@
 
 namespace facebook {
 namespace react {
-
+/**
 id convertFollyDynamicToId(const folly::dynamic &dyn) {
   // I could imagine an implementation which avoids copies by wrapping the
   // dynamic in a derived class of NSDictionary.  We can do that if profiling
@@ -108,5 +108,7 @@ folly::dynamic convertIdToFollyDynamic(id json)
 
   return nil;
 }
+ 
+ **/
 
 } }

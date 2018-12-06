@@ -11,9 +11,6 @@
 #include <string>
 #include <vector>
 
-//#include <folly/Optional.h>
-//#include <folly/dynamic.h>
-
 #include "json11.hpp"
 
 namespace facebook {

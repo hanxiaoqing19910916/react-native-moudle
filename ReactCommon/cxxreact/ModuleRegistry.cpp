@@ -5,8 +5,6 @@
 
 #include "ModuleRegistry.h"
 
-#include <glog/logging.h>
-
 
 namespace facebook {
 namespace react {
