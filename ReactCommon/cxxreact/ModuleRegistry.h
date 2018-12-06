@@ -7,11 +7,15 @@
 
 #include <memory>
 #include <unordered_set>
+#include <unordered_map>
 #include <vector>
 
 #include "NativeModule.h"
-#include <folly/Optional.h>
-#include <folly/dynamic.h>
+
+//#include <folly/Optional.h>
+//#include <folly/dynamic.h>
+
+//#include "json11.hpp"
 
 #ifndef RN_EXPORT
 #define RN_EXPORT __attribute__((visibility("default")))
@@ -24,8 +28,9 @@ class NativeModule;
 
 struct ModuleConfig {
   std::string name;
-  folly::dynamic config;
+  json11::Json config;
 };
+
 
 class RN_EXPORT ModuleRegistry {
  public:
@@ -43,10 +48,10 @@ class RN_EXPORT ModuleRegistry {
 
   std::vector<std::string> moduleNames();
 
-  folly::Optional<ModuleConfig> getConfig(const std::string& name);
+  std::unique_ptr<ModuleConfig> getConfig(const std::string& name);
 
-  void callNativeMethod(std::string moduleName, std::string methodName, folly::dynamic&& params, int callId);
-  MethodCallResult callSerializableNativeHook(std::string moduleName, std::string methodName, folly::dynamic&& args);
+  void callNativeMethod(std::string moduleName, std::string methodName, json11::Json&& params, int callId);
+  MethodCallResult callSerializableNativeHook(std::string moduleName, std::string methodName, json11::Json&& args);
 
  private:
   std::unordered_map<std::string, std::unique_ptr<NativeModule>> nameMoudles_;

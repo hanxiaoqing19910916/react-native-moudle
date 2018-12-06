@@ -17,9 +17,9 @@ class RCTNativeModule : public NativeModule {
 
   std::string getName() override;
   std::vector<MethodDescriptor> getMethods() override;
-  folly::dynamic getConstants() override;
-  void invoke(std::string methodName, folly::dynamic &&params, int callId) override;
-  MethodCallResult callSerializableNativeHook(std::string methodName, folly::dynamic &&params) override;
+  json11::Json getConstants() override;
+  void invoke(std::string methodName, json11::Json &&params, int callId) override;
+  MethodCallResult callSerializableNativeHook(std::string methodName, json11::Json &&params) override;
 
  private:
   __weak RCTBridge *m_bridge;

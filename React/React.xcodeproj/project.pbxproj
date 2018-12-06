@@ -54,7 +54,6 @@
 		19F61C011E8495CD00571D81 /* ieee.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E471E25C5A300323FB7 /* ieee.h */; };
 		19F61C021E8495CD00571D81 /* strtod.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E491E25C5A300323FB7 /* strtod.h */; };
 		19F61C031E8495CD00571D81 /* utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 139D7E4A1E25C5A300323FB7 /* utils.h */; };
-		27595AA41E575C7800CCE2B1 /* CxxModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0A71E03699D0018521A /* CxxModule.h */; };
 		27595AB91E575C7800CCE2B1 /* NativeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0CE1E03699D0018521A /* NativeModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D383D6D1EBD2940005632C8 /* libdouble-conversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139D7E881E25C6D100323FB7 /* libdouble-conversion.a */; };
 		3D383D6F1EBD2940005632C8 /* libthird-party.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139D7ECE1E25DB7D00323FB7 /* libthird-party.a */; };
@@ -71,7 +70,6 @@
 		3D80DA281DF820620028D040 /* RCTDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 13AF1F851AE6E777005F5298 /* RCTDefines.h */; };
 		3D80DA351DF820620028D040 /* RCTModuleData.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C2CA721B3AC64300E6CBB2 /* RCTModuleData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D80DA361DF820620028D040 /* RCTModuleMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = 14C2CA6F1B3AC63800E6CBB2 /* RCTModuleMethod.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DA981A01E5B0E34004F2374 /* CxxModule.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0A71E03699D0018521A /* CxxModule.h */; };
 		3DA981B81E5B0E34004F2374 /* NativeModule.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0CE1E03699D0018521A /* NativeModule.h */; };
 		59EDBCAB1FDF4E0C003573DE /* (null) in Sources */ = {isa = PBXBuildFile; };
 		59EDBCB31FDF4E0C003573DE /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -90,11 +88,14 @@
 		8A22B9ED217DABF1001B53F6 /* RCTConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A22B9E5217DAADE001B53F6 /* RCTConvert.m */; };
 		8ABB415F21788FD100E036A9 /* RCTCxxBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */; };
 		8ABB416021788FD100E036A9 /* RCTCxxBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */; };
+		8AEF85F521B7BD4E0045C86F /* json11.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 8AEF85F321B7BD4E0045C86F /* json11.hpp */; };
+		8AEF85F621B7BD4E0045C86F /* json11.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF85F421B7BD4E0045C86F /* json11.cc */; };
+		8AEF85F721B7BDCE0045C86F /* json11.hpp in Copy Headers */ = {isa = PBXBuildFile; fileRef = 8AEF85F321B7BD4E0045C86F /* json11.hpp */; };
+		8AEF85F821B7C0260045C86F /* ModuleRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A9132188716A00842772 /* ModuleRegistry.cpp */; };
 		8AF3A90D2186EA6400842772 /* RCTNativeModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */; };
 		8AF3A90E2186EA6400842772 /* RCTNativeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A90C2186EA6400842772 /* RCTNativeModule.h */; };
 		8AF3A9112186EAB300842772 /* RCTCxxUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A90F2186EAB300842772 /* RCTCxxUtils.mm */; };
 		8AF3A9122186EAB300842772 /* RCTCxxUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A9102186EAB300842772 /* RCTCxxUtils.h */; };
-		8AF3A9152188716A00842772 /* ModuleRegistry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8AF3A9132188716A00842772 /* ModuleRegistry.cpp */; };
 		8AF3A9162188716A00842772 /* ModuleRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A9142188716A00842772 /* ModuleRegistry.h */; };
 		8AF3A91A2188728D00842772 /* ModuleRegistry.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A9142188716A00842772 /* ModuleRegistry.h */; };
 		8AF3A91B218878AA00842772 /* RCTCxxUtils.h in Copy Headers */ = {isa = PBXBuildFile; fileRef = 8AF3A9102186EAB300842772 /* RCTCxxUtils.h */; };
@@ -165,8 +166,8 @@
 			dstPath = include/cxxreact;
 			dstSubfolderSpec = 16;
 			files = (
+				8AEF85F721B7BDCE0045C86F /* json11.hpp in Copy Headers */,
 				8AF3A91A2188728D00842772 /* ModuleRegistry.h in Copy Headers */,
-				3DA981A01E5B0E34004F2374 /* CxxModule.h in Copy Headers */,
 				3DA981B81E5B0E34004F2374 /* NativeModule.h in Copy Headers */,
 			);
 			name = "Copy Headers";
@@ -260,6 +261,9 @@
 		8A22B9E9217DAB76001B53F6 /* RCTParserUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RCTParserUtils.m; sourceTree = "<group>"; };
 		8ABB415D21788FD100E036A9 /* RCTCxxBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTCxxBridge.h; sourceTree = "<group>"; };
 		8ABB415E21788FD100E036A9 /* RCTCxxBridge.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxBridge.mm; sourceTree = "<group>"; };
+		8AEF85F221B7BD4E0045C86F /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
+		8AEF85F321B7BD4E0045C86F /* json11.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json11.hpp; sourceTree = "<group>"; };
+		8AEF85F421B7BD4E0045C86F /* json11.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = json11.cc; sourceTree = "<group>"; };
 		8AF3A90B2186EA6300842772 /* RCTNativeModule.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTNativeModule.mm; sourceTree = "<group>"; };
 		8AF3A90C2186EA6400842772 /* RCTNativeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTNativeModule.h; sourceTree = "<group>"; };
 		8AF3A90F2186EAB300842772 /* RCTCxxUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RCTCxxUtils.mm; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 		3D10A3C71DDF3CED004A0F9D /* ReactCommon */ = {
 			isa = PBXGroup;
 			children = (
+				8AEF85F121B7BD4E0045C86F /* json11 */,
 				AC70D2EA1DE489FC002E6351 /* cxxreact */,
 			);
 			name = ReactCommon;
@@ -489,6 +494,16 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
+		8AEF85F121B7BD4E0045C86F /* json11 */ = {
+			isa = PBXGroup;
+			children = (
+				8AEF85F221B7BD4E0045C86F /* CMakeLists.txt */,
+				8AEF85F321B7BD4E0045C86F /* json11.hpp */,
+				8AEF85F421B7BD4E0045C86F /* json11.cc */,
+			);
+			path = json11;
+			sourceTree = "<group>";
+		};
 		AC70D2EA1DE489FC002E6351 /* cxxreact */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,9 +539,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AEF85F521B7BD4E0045C86F /* json11.hpp in Headers */,
 				27595AB91E575C7800CCE2B1 /* NativeModule.h in Headers */,
 				8AF3A9162188716A00842772 /* ModuleRegistry.h in Headers */,
-				27595AA41E575C7800CCE2B1 /* CxxModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,7 +741,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AF3A9152188716A00842772 /* ModuleRegistry.cpp in Sources */,
+				8AEF85F821B7C0260045C86F /* ModuleRegistry.cpp in Sources */,
+				8AEF85F621B7BD4E0045C86F /* json11.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,6 +1012,12 @@
 					"RCT_METRO_PORT=${RCT_METRO_PORT}",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../third-party/boost_1_63_0",
+					"$(SRCROOT)/../third-party/folly-2016.10.31.00",
+					"$(SRCROOT)/../third-party/glog-0.3.5/src",
+					"\"$(SRCROOT)/../ReactCommon/json11\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-weak_framework",
@@ -1018,6 +1040,12 @@
 					"RCT_METRO_PORT=${RCT_METRO_PORT}",
 				);
 				GCC_WARN_ABOUT_MISSING_NEWLINE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../third-party/boost_1_63_0",
+					"$(SRCROOT)/../third-party/folly-2016.10.31.00",
+					"$(SRCROOT)/../third-party/glog-0.3.5/src",
+					"\"$(SRCROOT)/../ReactCommon/json11\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-weak_framework",

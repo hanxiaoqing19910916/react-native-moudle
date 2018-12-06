@@ -20,7 +20,7 @@
 namespace facebook {
 namespace react {
 
-static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData, std::string methodName, const folly::dynamic &params);
+static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData, std::string methodName, const json11::Json &params);
 
 RCTNativeModule::RCTNativeModule(RCTBridge *bridge, RCTModuleData *moduleData)
     : m_bridge(bridge)
@@ -33,33 +33,33 @@ std::string RCTNativeModule::getName() {
 std::vector<MethodDescriptor> RCTNativeModule::getMethods() {
   std::vector<MethodDescriptor> descs;
 
-//  for (id<RCTBridgeMethod> method in m_moduleData.methods) {
-//    descs.emplace_back(
-//      method.JSMethodName,
-//      RCTFunctionDescriptorFromType(method.functionType)
-//    );
-//  }
+  for (id<RCTBridgeMethod> method in m_moduleData.methodsByName.allValues) {
+    descs.emplace_back(
+      method.JSMethodName,
+      RCTFunctionDescriptorFromType(method.functionType)
+    );
+  }
 
   return descs;
 }
 
-folly::dynamic RCTNativeModule::getConstants() {
+json11::Json RCTNativeModule::getConstants() {
   return nullptr;
 }
   
 
 
-void RCTNativeModule::invoke(std::string methodName, folly::dynamic &&params, int callId) {
+void RCTNativeModule::invoke(std::string methodName, json11::Json &&params, int callId) {
    invokeInner(m_bridge, m_moduleData, methodName, std::move(params));
 }
 
-MethodCallResult RCTNativeModule::callSerializableNativeHook(std::string methodName, folly::dynamic &&params) {
+MethodCallResult RCTNativeModule::callSerializableNativeHook(std::string methodName, json11::Json &&params) {
   return invokeInner(m_bridge, m_moduleData, methodName, params);
 }
 
-static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData, std::string methodName, const folly::dynamic &params) {
+static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData, std::string methodName, const json11::Json &params) {
   if (!bridge || !bridge.valid || !moduleData) {
-    return folly::none;
+    return nullptr;
   }
 
   NSString *toFindMethodName = [NSString stringWithCString:methodName.c_str() encoding:NSUTF8StringEncoding];
@@ -68,11 +68,12 @@ static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData
     RCTLogError(@"Unknown methodID: %@ for module: %@",
                 toFindMethodName, moduleData.name);
   }
-
-  NSArray *objcParams = convertFollyDynamicToId(params);
+// convertFollyDynamicToId(params)
+  NSArray *objcParams = @[];
   @try {
     id result = [method invokeWithBridge:bridge module:moduleData.instance arguments:objcParams];
-    return convertIdToFollyDynamic(result);
+//    return convertIdToFollyDynamic(result);
+    return nullptr;
   }
   @catch (NSException *exception) {
     // Pass on JS exceptions
@@ -86,7 +87,7 @@ static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData
     RCTFatal(RCTErrorWithMessage(message));
   }
 
-  return folly::none;
+  return nullptr;
 }
 
 }

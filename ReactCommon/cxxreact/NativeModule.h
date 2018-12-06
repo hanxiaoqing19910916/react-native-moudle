@@ -11,8 +11,10 @@
 #include <string>
 #include <vector>
 
-#include <folly/Optional.h>
-#include <folly/dynamic.h>
+//#include <folly/Optional.h>
+//#include <folly/dynamic.h>
+
+#include "json11.hpp"
 
 namespace facebook {
 namespace react {
@@ -27,18 +29,16 @@ struct MethodDescriptor {
       , type(std::move(t)) {}
 };
 
+using MethodCallResult = std::unique_ptr<json11::Json>;
 
-using MethodCallResult = folly::Optional<folly::dynamic>;
-  
-  
 class NativeModule {
  public:
   virtual ~NativeModule() {}
   virtual std::string getName() = 0;
   virtual std::vector<MethodDescriptor> getMethods() = 0;
-  virtual folly::dynamic getConstants() = 0;
-  virtual void invoke(std::string methodName, folly::dynamic&& params, int callId) = 0;
-  virtual MethodCallResult callSerializableNativeHook(std::string methodName, folly::dynamic&& args) = 0;
+  virtual json11::Json getConstants() = 0;
+  virtual void invoke(std::string methodName, json11::Json&& params, int callId) = 0;
+  virtual MethodCallResult callSerializableNativeHook(std::string methodName, json11::Json&& args) = 0;
 };
   
 

@@ -35,29 +35,7 @@ ModuleRegistry::ModuleRegistry(std::unordered_map<std::string, std::unique_ptr<N
   
 
 void ModuleRegistry::registerModules(std::vector<std::unique_ptr<NativeModule>> modules) {
-//  if (modules_.empty() && unknownModules_.empty()) {
-//    modules_ = std::move(modules);
-//  } else {
-//    size_t modulesSize = modules_.size();
-//    size_t addModulesSize = modules.size();
-//    bool addToNames = !modulesByName_.empty();
-//    modules_.reserve(modulesSize + addModulesSize);
-//    std::move(modules.begin(), modules.end(), std::back_inserter(modules_));
-//    if (!unknownModules_.empty()) {
-//      for (size_t index = modulesSize; index < modulesSize + addModulesSize; index++) {
-//        std::string name = normalizeName(modules_[index]->getName());
-//        auto it = unknownModules_.find(name);
-//        if (it != unknownModules_.end()) {
-//          throw std::runtime_error(
-//            folly::to<std::string>("module ", name, " was required without being registered and is now being registered."));
-//        } else if (addToNames) {
-//          modulesByName_[name] = index;
-//        }
-//      }
-//    } else if (addToNames) {
-//      updateModuleNamesFromIndex(modulesSize);
-//    }
-//  }
+  
 }
 
 std::vector<std::string> ModuleRegistry::moduleNames() {
@@ -69,7 +47,7 @@ std::vector<std::string> ModuleRegistry::moduleNames() {
   return names;
 }
 
-folly::Optional<ModuleConfig> ModuleRegistry::getConfig(const std::string& name) {
+std::unique_ptr<ModuleConfig> ModuleRegistry::getConfig(const std::string& name) {
   
   if (nameMoudles_.empty()) {
     return nullptr;
@@ -92,60 +70,63 @@ folly::Optional<ModuleConfig> ModuleRegistry::getConfig(const std::string& name)
   NativeModule *module = it->second.get();
   
   // string name, object constants, array methodNames (methodId is index), [array promiseMethodIds], [array syncMethodIds]
-  folly::dynamic config = folly::dynamic::array(name);
+  json11::Json::array config = json11::Json::array();
+  
+  config.push_back(json11::Json(name));
   config.push_back(module->getConstants());
-  
-  
+ 
   std::vector<MethodDescriptor> methods = module->getMethods();
+ 
+  json11::Json::array methodNames = json11::Json::array();
+  json11::Json::array promiseMethodIds = json11::Json::array();
+  json11::Json::array syncMethodIds = json11::Json::array();
   
-  folly::dynamic methodNames = folly::dynamic::array;
-  folly::dynamic promiseMethodIds = folly::dynamic::array;
-  folly::dynamic syncMethodIds = folly::dynamic::array;
-  
-  for (auto& descriptor : methods) {
-    // TODO: #10487027 compare tags instead of doing string comparison?
-    methodNames.push_back(std::move(descriptor.name));
-    if (descriptor.type == "promise") {
-      promiseMethodIds.push_back(methodNames.size() - 1);
-    } else if (descriptor.type == "sync") {
-      syncMethodIds.push_back(methodNames.size() - 1);
-    }
-  }
-  
-  if (!methodNames.empty()) {
-    config.push_back(std::move(methodNames));
-    if (!promiseMethodIds.empty() || !syncMethodIds.empty()) {
-      config.push_back(std::move(promiseMethodIds));
-      if (!syncMethodIds.empty()) {
-        config.push_back(std::move(syncMethodIds));
-      }
-    }
-  }
-  
-  
-  if (config.size() == 2 && config[1].empty()) {
-    // no constants or methods
-    return nullptr;
-  } else {
-    return ModuleConfig{name, config};
-  }
+//
+//  for (auto& descriptor : methods) {
+//    // TODO: #10487027 compare tags instead of doing string comparison?
+//    methodNames.push_back(std::move(descriptor.name));
+//    if (descriptor.type == "promise") {
+//      promiseMethodIds.push_back(methodNames.size() - 1);
+//    } else if (descriptor.type == "sync") {
+//      syncMethodIds.push_back(methodNames.size() - 1);
+//    }
+//  }
+//
+//  if (!methodNames.empty()) {
+//    config.push_back(std::move(methodNames));
+//    if (!promiseMethodIds.empty() || !syncMethodIds.empty()) {
+//      config.push_back(std::move(promiseMethodIds));
+//      if (!syncMethodIds.empty()) {
+//        config.push_back(std::move(syncMethodIds));
+//      }
+//    }
+//  }
+//
+//
+//  if (config.size() == 2 && config[1].empty()) {
+//    // no constants or methods
+//    return nullptr;
+//  } else {
+//    return ModuleConfig{name, config};
+//  }
+  return nullptr;
 }
   
-void ModuleRegistry::callNativeMethod(std::string moduleName, std::string methodName, folly::dynamic&& params, int callId) {
+void ModuleRegistry::callNativeMethod(std::string moduleName, std::string methodName, json11::Json&& params, int callId) {
   auto it = nameMoudles_.find(moduleName);
   if (it == nameMoudles_.end()) {
-    throw std::runtime_error(
-                             folly::to<std::string>("moduleName: ", moduleName, " not existed"));
+//    throw std::runtime_error(
+//                             folly::to<std::string>("moduleName: ", moduleName, " not existed"));
   }
   NativeModule *module = it->second.get();
   module->invoke(methodName, std::move(params), callId);
 }
 
-MethodCallResult ModuleRegistry::callSerializableNativeHook(std::string moduleName, std::string methodName, folly::dynamic&& params) {
+MethodCallResult ModuleRegistry::callSerializableNativeHook(std::string moduleName, std::string methodName, json11::Json&& params) {
   auto it = nameMoudles_.find(moduleName);
   if (it == nameMoudles_.end()) {
-    throw std::runtime_error(
-                             folly::to<std::string>("moduleName", moduleName, " not existed"));
+//    throw std::runtime_error(
+//                             folly::to<std::string>("moduleName", moduleName, " not existed"));
   }
   NativeModule *module = it->second.get();
   return module->callSerializableNativeHook(methodName, std::move(params));
