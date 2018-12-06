@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */; };
-		130443A21E3FEAA900D93A67 /* RCTFollyConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 130443A01E3FEAA900D93A67 /* RCTFollyConvert.mm */; };
+		130443A11E3FEAA900D93A67 /* RCTJsonConvert.h in Headers */ = {isa = PBXBuildFile; fileRef = 1304439F1E3FEAA900D93A67 /* RCTJsonConvert.h */; };
+		130443A21E3FEAA900D93A67 /* RCTJsonConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = 130443A01E3FEAA900D93A67 /* RCTJsonConvert.mm */; };
 		14C2CA741B3AC64300E6CBB2 /* RCTModuleData.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14C2CA731B3AC64300E6CBB2 /* RCTModuleData.mm */; };
 		27595AB91E575C7800CCE2B1 /* NativeModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D92B0CE1E03699D0018521A /* NativeModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D3CD9411DE5FC5300167DC4 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D3CD9251DE5FBEC00167DC4 /* libcxxreact.a */; };
@@ -104,8 +104,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTFollyConvert.h; path = CxxUtils/RCTFollyConvert.h; sourceTree = "<group>"; };
-		130443A01E3FEAA900D93A67 /* RCTFollyConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RCTFollyConvert.mm; path = CxxUtils/RCTFollyConvert.mm; sourceTree = "<group>"; };
+		1304439F1E3FEAA900D93A67 /* RCTJsonConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTJsonConvert.h; path = CxxUtils/RCTJsonConvert.h; sourceTree = "<group>"; };
+		130443A01E3FEAA900D93A67 /* RCTJsonConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RCTJsonConvert.mm; path = CxxUtils/RCTJsonConvert.mm; sourceTree = "<group>"; };
 		13AF1F851AE6E777005F5298 /* RCTDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTDefines.h; sourceTree = "<group>"; };
 		13AFBCA11C07287B00BBAEAA /* RCTBridgeMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTBridgeMethod.h; sourceTree = "<group>"; };
 		14C2CA6F1B3AC63800E6CBB2 /* RCTModuleMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCTModuleMethod.h; sourceTree = "<group>"; };
@@ -156,8 +156,8 @@
 		1304439E1E3FEA8B00D93A67 /* CxxUtils */ = {
 			isa = PBXGroup;
 			children = (
-				1304439F1E3FEAA900D93A67 /* RCTFollyConvert.h */,
-				130443A01E3FEAA900D93A67 /* RCTFollyConvert.mm */,
+				1304439F1E3FEAA900D93A67 /* RCTJsonConvert.h */,
+				130443A01E3FEAA900D93A67 /* RCTJsonConvert.mm */,
 			);
 			name = CxxUtils;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 				8A071D8D2174788000DD499C /* RCTLog.h in Headers */,
 				8A071D8B2174788000DD499C /* RCTUtils.h in Headers */,
 				8A071D842174783200DD499C /* RCTAssert.h in Headers */,
-				130443A11E3FEAA900D93A67 /* RCTFollyConvert.h in Headers */,
+				130443A11E3FEAA900D93A67 /* RCTJsonConvert.h in Headers */,
 				3D80DA281DF820620028D040 /* RCTDefines.h in Headers */,
 				3D80DA251DF820620028D040 /* RCTBridgeModule.h in Headers */,
 				3D80DA351DF820620028D040 /* RCTModuleData.h in Headers */,
@@ -400,7 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59EDBCB31FDF4E0C003573DE /* (null) in Sources */,
-				130443A21E3FEAA900D93A67 /* RCTFollyConvert.mm in Sources */,
+				130443A21E3FEAA900D93A67 /* RCTJsonConvert.mm in Sources */,
 				8A22B9EB217DAB76001B53F6 /* RCTParserUtils.m in Sources */,
 				C606692E1F3CC60500E67165 /* RCTModuleMethod.mm in Sources */,
 				8A071D852174783200DD499C /* RCTAssert.m in Sources */,

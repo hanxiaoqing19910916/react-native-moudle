@@ -7,7 +7,7 @@
 
 #import "RCTCxxUtils.h"
 
-#import <React/RCTFollyConvert.h>
+#import <React/RCTJsonConvert.h>
 #import <React/RCTModuleData.h>
 #import <React/RCTUtils.h>
 #import "RCTCxxBridge.h"

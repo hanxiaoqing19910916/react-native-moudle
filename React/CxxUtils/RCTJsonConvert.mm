@@ -5,56 +5,54 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-#import "RCTFollyConvert.h"
+#import "RCTJsonConvert.h"
 
 #import <objc/runtime.h>
 
 namespace facebook {
 namespace react {
-/**
-id convertFollyDynamicToId(const folly::dynamic &dyn) {
-  // I could imagine an implementation which avoids copies by wrapping the
-  // dynamic in a derived class of NSDictionary.  We can do that if profiling
-  // implies it will help.
 
-  switch (dyn.type()) {
-    case folly::dynamic::NULLT:
-//      return (id)kCFNull;
+id convertCxxJsonToId(const json11::Json &cjn) {
+  
+  switch (cjn.type()) {
+    case json11::Json::NUL:
       return @[];
-    case folly::dynamic::BOOL:
-      return dyn.getBool() ? @YES : @NO;
-    case folly::dynamic::INT64:
-      return @(dyn.getInt());
-    case folly::dynamic::DOUBLE:
-      return @(dyn.getDouble());
-    case folly::dynamic::STRING:
-      return [[NSString alloc] initWithBytes:dyn.c_str() length:dyn.size()
-                                   encoding:NSUTF8StringEncoding];
-    case folly::dynamic::ARRAY: {
-      NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:dyn.size()];
-      for (auto &elem : dyn) {
-        [array addObject:convertFollyDynamicToId(elem)];
+    case json11::Json::BOOL:
+      return cjn.bool_value() ? @YES : @NO;
+    case json11::Json::NUMBER:
+      if (cjn.int_value()) {
+        return @(cjn.int_value());
+      } else {
+        return @(cjn.number_value());
+      }
+    case json11::Json::STRING:
+      return [NSString stringWithUTF8String:cjn.string_value().c_str()];
+    case json11::Json::ARRAY: {
+      NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:cjn.array_items().size()];
+      for (auto &elem : cjn.array_items()) {
+        [array addObject:convertCxxJsonToId(elem)];
       }
       return array;
     }
-    case folly::dynamic::OBJECT: {
-      NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:dyn.size()];
-      for (auto &elem : dyn.items()) {
-        dict[convertFollyDynamicToId(elem.first)] = convertFollyDynamicToId(elem.second);
+    case json11::Json::OBJECT: {
+      NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithCapacity:cjn.object_items().size()];
+      for (auto &elem : cjn.object_items()) {
+        dict[convertCxxJsonToId(elem.first)] = convertCxxJsonToId(elem.second);
       }
       return dict;
     }
   }
+    return nil;
 }
 
-folly::dynamic convertIdToFollyDynamic(id json)
-{
+  
+json11::Json convertIdToCxxJson(id json) {
   if (json == nil || json == (id)kCFNull) {
     return nullptr;
   } else if ([json isKindOfClass:[NSNumber class]]) {
     const char *objCType = [json objCType];
     switch (objCType[0]) {
-      // This is a c++ bool or C99 _Bool.  On some platforms, BOOL is a bool.
+        // This is a c++ bool or C99 _Bool.  On some platforms, BOOL is a bool.
       case _C_BOOL:
         return (bool) [json boolValue];
       case _C_CHR:
@@ -65,7 +63,7 @@ folly::dynamic convertIdToFollyDynamic(id json)
         if ([json isKindOfClass:[@YES class]]) {
           return (bool) [json boolValue];
         } else {
-          return [json longLongValue];
+          return [json intValue];
         }
       case _C_UCHR:
       case _C_SHT:
@@ -76,39 +74,39 @@ folly::dynamic convertIdToFollyDynamic(id json)
       case _C_ULNG:
       case _C_LNG_LNG:
       case _C_ULNG_LNG:
-        return [json longLongValue];
-
+        return [json intValue];
+        
       case _C_FLT:
       case _C_DBL:
         return [json doubleValue];
-
-      // default:
-      //   fall through
+        
+        // default:
+        //   fall through
     }
   } else if ([json isKindOfClass:[NSString class]]) {
     NSData *data = [json dataUsingEncoding:NSUTF8StringEncoding];
     return std::string(reinterpret_cast<const char*>(data.bytes),
                        data.length);
   } else if ([json isKindOfClass:[NSArray class]]) {
-    folly::dynamic array = folly::dynamic::array;
+    json11::Json::array array = json11::Json::array();
     for (id element in json) {
-      array.push_back(convertIdToFollyDynamic(element));
+      array.push_back(convertIdToCxxJson(element));
     }
     return array;
   } else if ([json isKindOfClass:[NSDictionary class]]) {
-    __block folly::dynamic object = folly::dynamic::object();
-
+    __block std::map<std::string, json11::Json> object = {};
     [json enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, __unused BOOL *stop) {
-      object.insert(convertIdToFollyDynamic(key),
-                    convertIdToFollyDynamic(value));
-      }];
-
+      NSData *data = [key dataUsingEncoding:NSUTF8StringEncoding];
+      std::string _key = std::string(reinterpret_cast<const char*>(data.bytes),
+                         data.length);
+      object[_key] = convertIdToCxxJson(value);
+    }];
     return object;
   }
-
   return nil;
 }
- 
- **/
+
+
+
 
 } }

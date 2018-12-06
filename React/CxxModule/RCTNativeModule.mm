@@ -12,7 +12,7 @@
 #import <React/RCTBridgeModule.h>
 
 #import <React/RCTCxxUtils.h>
-#import <React/RCTFollyConvert.h>
+#import <React/RCTJsonConvert.h>
 #import <React/RCTLog.h>
 #import <React/RCTUtils.h>
 
@@ -68,12 +68,11 @@ static MethodCallResult invokeInner(RCTBridge *bridge, RCTModuleData *moduleData
     RCTLogError(@"Unknown methodID: %@ for module: %@",
                 toFindMethodName, moduleData.name);
   }
-// convertFollyDynamicToId(params)
-  NSArray *objcParams = @[];
+ 
+  NSArray *objcParams = convertCxxJsonToId(params);
   @try {
     id result = [method invokeWithBridge:bridge module:moduleData.instance arguments:objcParams];
-//    return convertIdToFollyDynamic(result);
-    return nullptr;
+    return std::make_unique<json11::Json>(convertIdToCxxJson(result));
   }
   @catch (NSException *exception) {
     // Pass on JS exceptions
