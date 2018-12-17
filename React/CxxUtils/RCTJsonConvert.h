@@ -13,7 +13,5 @@ namespace react {
   
 json11::Json convertIdToCxxJson(id json);
 id convertCxxJsonToId(const json11::Json &cjn);
-//folly::dynamic convertIdToFollyDynamic(id json);
-//id convertFollyDynamicToId(const folly::dynamic &dyn);
-//        
+     
 } }
